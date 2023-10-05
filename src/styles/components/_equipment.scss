@@ -1,0 +1,98 @@
+@use '../abstracts/functions' as fn;
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.equipment {
+	&__background {
+		@include m.background-layers($opacity: 0.65);
+
+		&--color {
+			background-color: var(--color-primary);
+		}
+		&--lower {
+			background-position: 70% 70%;
+		}
+	}
+	&__content {
+		position: relative;
+		z-index: 2;
+		padding-top: 4rem;
+
+		.headline {
+			font-family: v.$font-poppins;
+			text-align: center;
+			text-transform: capitalize;
+			letter-spacing: 0.2rem;
+		}
+	}
+	&__steps {
+		@include m.displayFlex($main: space-between);
+		%step-style {
+			@include m.displayFlex(column, $cross: center);
+
+			svg {
+				width: 27rem;
+				height: 27rem;
+				margin-bottom: 2rem;
+			}
+		}
+
+		&--step-1 {
+			@extend %step-style;
+		}
+
+		&--step-2 {
+			@extend %step-style;
+		}
+
+		&--step-3 {
+			@extend %step-style;
+		}
+	}
+}
+
+// SVG STYLES
+.equipment-icon {
+	--background: #dbdbdb;
+	.a,
+	.e {
+		fill: var(--color-primary);
+	}
+	.b {
+		fill: var(--background);
+	}
+	.e {
+		font-size: 33px;
+		font-family: Poppins-Bold, Poppins;
+		font-weight: 700;
+	}
+	.d {
+		fill: white;
+	}
+	&#step-1 {
+		.c {
+			clip-path: url(#step-1a);
+		}
+
+		.f {
+			filter: url(#step-1b);
+		}
+	}
+	&#step-2 {
+		.c {
+			clip-path: url(#step-2a);
+		}
+
+		.f {
+			filter: url(#step-2b);
+		}
+	}
+	&#step-3 {
+		.c {
+			clip-path: url(#step-3a);
+		}
+		.f {
+			filter: url(#step-3b);
+		}
+	}
+}

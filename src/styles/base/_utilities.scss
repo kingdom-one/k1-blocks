@@ -1,0 +1,59 @@
+@use '../abstracts/mixins' as m;
+
+.hide {
+	display: none !important;
+	visibility: hidden !important;
+}
+
+.bg-color-primary {
+	background-color: var(--color-primary);
+	color: white;
+}
+
+.bg-color-primary--dark {
+	background-color: var(--color-primary--dark);
+	color: white;
+}
+
+.bg-rolling-hills {
+	background-repeat: no-repeat;
+	background-size: 100%;
+	height: 110rem;
+
+	.container {
+		position: absolute;
+		top: 20%;
+		left: 5%;
+	}
+}
+
+.text-roie {
+	font-family: var(--font-headings) !important;
+	letter-spacing: 0.2em;
+}
+.text-poppins {
+	font-family: var(--font-body) !important;
+}
+.text-primary--dark {
+	color: var(--color-primary--dark);
+}
+
+.clip-color-left {
+	@include m.clip-path('left');
+}
+
+.clip-color-right {
+	@include m.clip-path('right');
+}
+
+.clip-color-left-top {
+	@include m.clip-path('left-top');
+}
+
+.clip-color-zig-zag-left {
+	@include m.clip-path('zig-zag-left');
+}
+
+.clip-color-zig-zag-right {
+	@include m.clip-path('zig-zag-right');
+}

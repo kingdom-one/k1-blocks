@@ -1,0 +1,32 @@
+@use '../../../abstracts/mixins' as m;
+
+.ab506-final-cta {
+	&__background {
+		@include m.background-layers($opacity: 0.5);
+
+		&--color {
+			background-color: var(--color-ar-orange);
+		}
+	}
+	&__icon {
+		--size: 17rem;
+		width: var(--size);
+		height: var(--size);
+		.a,
+		.d {
+			fill: none;
+		}
+		.a {
+			stroke: white;
+			stroke-width: 5px;
+		}
+		.b {
+			fill: white;
+			font-size: 11rem;
+			font-family: var(--font-headings);
+		}
+		.c {
+			stroke: none;
+		}
+	}
+}

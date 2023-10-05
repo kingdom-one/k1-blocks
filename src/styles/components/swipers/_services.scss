@@ -1,0 +1,105 @@
+@use './abstracts';
+@use './base';
+
+#services-swiper {
+	.swiper-wrapper {
+		align-items: stretch;
+	}
+	.swiper-slide {
+		height: unset;
+	}
+	%swiper_nav {
+		color: var(--color-primary);
+	}
+
+	.swiper-button-services-prev {
+		@extend %swiper_nav;
+	}
+
+	.swiper-button-services-next {
+		@extend %swiper_nav;
+	}
+}
+
+%services-icon {
+	$size: 10rem;
+	height: $size;
+	width: $size;
+
+	.a {
+		fill: var(--color-primary);
+	}
+}
+
+.services-icon {
+	:where(&#worship) {
+		@extend %services-icon;
+
+		.b {
+			clip-path: url(#worship-a);
+		}
+	}
+
+	:where(&#video) {
+		@extend %services-icon;
+
+		.b {
+			clip-path: url(#video-a);
+		}
+	}
+
+	:where(&#staffing) {
+		@extend %services-icon;
+
+		.b {
+			clip-path: url(#staffing-a);
+		}
+	}
+
+	:where(&#online) {
+		@extend %services-icon;
+
+		.b {
+			clip-path: url(#online-a);
+		}
+	}
+
+	:where(&#marcom) {
+		@extend %services-icon;
+
+		.b {
+			clip-path: url(#marcom-a);
+		}
+	}
+
+	:where(&#it) {
+		@extend %services-icon;
+
+		.b {
+			clip-path: url(#it-a);
+		}
+	}
+
+	:where(&#finance) {
+		@extend %services-icon;
+
+		.b {
+			clip-path: url(#finance-a);
+		}
+	}
+
+	:where(&#hr) {
+		@extend %services-icon;
+		.a {
+			fill: none;
+		}
+
+		.b {
+			clip-path: url(#hr-a);
+		}
+
+		.c {
+			fill: var(--color-primary);
+		}
+	}
+}

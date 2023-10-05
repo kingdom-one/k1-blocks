@@ -1,0 +1,265 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+@use '../components/content-sections/core-services';
+@use '../components/equipment';
+
+@mixin full-size {
+	height: 100%;
+	width: 100%;
+}
+
+.top-talent-groups {
+	padding: 6.5rem 0;
+	.icon {
+		@include m.displayFlex(column, $cross: center);
+
+		&__svg {
+			$size: 15rem;
+			width: $size;
+			height: $size;
+			margin-bottom: 2rem;
+		}
+		&__label {
+			color: var(--color-grey);
+			font-size: 2em;
+			text-align: center;
+			font-weight: 700;
+		}
+	}
+}
+
+.stakes {
+	&__background {
+		@include m.background-layers;
+
+		&--color {
+			background-color: var(--color-primary--dark);
+		}
+
+		&--upper {
+			background-color: rgba(black, 0.35);
+		}
+	}
+
+	&__content {
+		position: relative;
+		z-index: 4;
+
+		@include m.media-breakpoint-up(lg) {
+			--frame-left: 47rem;
+			--frame-top: 3rem;
+			--frame-bottom: 49rem;
+			--frame-right: 92rem;
+
+			--window: polygon(
+				0% 0%,
+				0% 100%,
+				var(--frame-left) 100%,
+				var(--frame-left) var(--frame-top),
+				var(--frame-right) var(--frame-top),
+				var(--frame-right) var(--frame-bottom),
+				var(--frame-left) var(--frame-bottom),
+				var(--frame-left) 100%,
+				100% 100%,
+				100% 0%
+			);
+		}
+		@include m.media-breakpoint-up(xl) {
+			--frame-left: 56rem;
+			--frame-top: 3rem;
+			--frame-bottom: 48rem;
+			--frame-right: 110rem;
+		}
+		@include m.media-breakpoint-up(xxl) {
+			--frame-left: 65rem;
+			--frame-top: 3rem;
+			--frame-bottom: 48rem;
+			--frame-right: 128rem;
+		}
+
+		&--background {
+			background-color: #fef1db;
+			border-radius: 1rem;
+			padding: 3rem;
+			@include m.media-breakpoint-up(lg) {
+				clip-path: var(--window);
+			}
+		}
+	}
+
+	.swiper {
+		height: 45rem;
+		&-stakes-pagination {
+			&-bullet-active {
+				background-color: var(--color-primary);
+			}
+		}
+	}
+}
+
+.community {
+	margin-top: -6rem;
+	padding: 6.5rem 0 0 0;
+	background-color: var(--color-primary--darkest);
+	color: white;
+
+	#leaves-4 {
+		$size: 15rem;
+		width: $size;
+		height: $size;
+		position: absolute;
+		transform: rotate(-60deg);
+		stroke: var(--color-primary);
+		display: none;
+
+		@include m.media-breakpoint-up(sm) {
+			left: 80%;
+			display: block;
+		}
+
+		@include m.media-breakpoint-only(lg) {
+			left: 90%;
+		}
+	}
+
+	&__grid {
+		margin-top: -5rem;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(10rem, 22.5rem));
+		place-content: center;
+		gap: 2rem;
+		flex: 1 0 100%;
+
+		@include m.media-breakpoint-up(lg) {
+			grid-template-rows: repeat(2, 1fr);
+			gap: 2rem;
+		}
+
+		&--container {
+			box-shadow: 0px -10px 8px 1px black;
+			background-color: white;
+			border-radius: 2rem 2rem 0 0;
+			margin-top: 8rem;
+			padding-bottom: 4rem;
+
+			.container {
+				@include m.displayFlex($main: center);
+				// display: flex;
+			}
+		}
+
+		&--item {
+			@include m.displayFlex(column, center, center);
+			background-color: white;
+			border: 2px solid var(--color-grey);
+			border-radius: 1rem;
+			padding: 2rem 1rem;
+		}
+	}
+
+	&__grid-item-content {
+		$content-color: var(--color-grey);
+		color: $content-color;
+
+		@include m.displayFlex(column, center, center);
+		gap: 1rem;
+
+		.front-page-icon {
+			$svg-size: 5rem;
+			width: $svg-size;
+			height: $svg-size;
+			path {
+				fill: $content-color;
+			}
+		}
+
+		&--text {
+			font-weight: 700;
+			text-align: center;
+			font-size: 1.6rem;
+		}
+	}
+}
+
+.selling-points {
+	&__figures {
+		position: relative;
+		img {
+			width: 100%;
+			max-height: 40rem;
+			object-fit: contain;
+		}
+
+		.script-values {
+			@include m.displayFlex(column);
+			position: absolute;
+			top: 50%;
+			left: 65%;
+
+			&__value {
+				width: auto;
+				height: 7rem;
+			}
+		}
+	}
+
+	&__underlines {
+		width: 100%;
+
+		%lines {
+			border-width: 2px;
+			border-style: solid;
+			border-radius: 5px;
+			opacity: 1;
+			width: 100%;
+		}
+		&--line-1 {
+			@extend %lines;
+			border: v.$color-grey--light;
+		}
+		&--line-2 {
+			@extend %lines;
+			border-color: v.$color-primary;
+		}
+	}
+}
+
+.the-plan {
+	&__content {
+		width: 60%;
+		margin-bottom: 3rem;
+		span {
+			display: block;
+			margin: 2rem auto 4rem auto;
+		}
+	}
+
+	.scroll-reveal {
+		&__item {
+			@include m.displayFlex($cross: center, $wrap: nowrap);
+			gap: 2rem;
+			padding: 2rem;
+
+			&:not(:last-child) {
+				border-bottom: 2px solid white;
+			}
+
+			&:nth-child(1) {
+				width: 70%;
+			}
+
+			&:nth-child(2) {
+				width: 60%;
+			}
+
+			&:nth-child(3) {
+				width: 60%;
+			}
+
+			.headline {
+				display: block;
+				margin-left: 2rem;
+			}
+		}
+	}
+}

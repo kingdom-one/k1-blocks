@@ -1,0 +1,27 @@
+@use '../../abstracts/mixins' as m;
+
+.offcanvas {
+	padding-top: 2rem;
+	background-color: var(--color-primary--dark);
+
+	&__header {
+		@include m.displayFlex(row, space-between, center);
+		padding: 2rem 1rem;
+	}
+
+	.logo-image {
+		svg {
+			color: var(--color-primary);
+		}
+	}
+	.btn-close {
+		color: white;
+		font-size: 5rem;
+		background: none;
+		width: unset;
+		height: unset;
+		padding: unset;
+		box-sizing: unset;
+		opacity: 1;
+	}
+}

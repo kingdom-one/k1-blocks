@@ -1,0 +1,57 @@
+/* ////////////
+// TYPOGRAPHY
+///////////// */
+$font-roie: 'Roie', sans-serif;
+$font-poppins: 'poppins', sans-serif;
+$font-headings: $font-roie;
+$font-body: $font-poppins;
+
+/* //////////
+// CLIP PATHS
+/////////// */
+$height: 5%;
+$drop: calc(0% + $height);
+$lift: calc(100% - $height);
+
+$lift-left-bottom: polygon(0 0, 100% 0, 100% 100%, 0% $lift);
+$lift-right-bottom: polygon(0 0, 100% 0, 100% $lift, 0% 100%);
+
+$drop-left-top: polygon(0 $drop, 100% 0, 100% 100%, 0 100%);
+$drop-right-top: polygon(0 0, 100% $drop, 100% 100%, 0 100%);
+
+$drop-left: polygon(0 $drop, 100% 0, 100% 100%, 0 $lift);
+$drop-right: polygon(0 0, 100% $drop, 100% $lift, 0 100%);
+
+$zig-color-left: polygon(0 $drop, 100% 0, 100% $lift, 0 100%);
+$zag-color-right: polygon(0 0, 100% $drop, 100% 100%, 0 $lift);
+
+$zig-color-right: polygon(0 0, 100% $drop, 100% 100%, 0 $lift);
+$zag-color-left: polygon(0 $drop, 100% 0, 100% $lift, 0 100%);
+
+/* //////////
+// COLORS
+/////////// */
+
+/* K1 Greens */
+$color-k1-green: #00ae83;
+$color-k1-green--dark: #00644b;
+$color-academy-green: #2e3636;
+$color-spark-yellow: #f4c063;
+$color-ar-purple: #9d9dcd;
+$color-ar-orange: #e37f5a;
+$color-ar-yellow: #f4eb27;
+
+/* Utilities */
+$color-grey: #4b4b4b;
+$color-grey--light: #707070;
+$color-grey--lightest: #dbdbdb;
+
+$color-primary: $color-k1-green;
+$color-primary--dark: $color-k1-green--dark;
+$color-primary--darkest: $color-academy-green;
+
+/* //////////
+// MISC.
+/////////// */
+$transition--standard: 0.3s ease;
+$color-secondary: $color-academy-green;

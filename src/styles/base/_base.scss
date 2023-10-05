@@ -1,0 +1,44 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+%section_style {
+	position: relative;
+	padding: 6.5rem 0;
+}
+
+section {
+	position: relative;
+
+	&:where(:not(.hero)) {
+		@extend %section_style;
+	}
+}
+
+aside {
+	@extend %section_style;
+}
+
+figure {
+	margin-bottom: 0;
+}
+
+main {
+	position: relative;
+}
+
+.container {
+	position: relative;
+}
+
+.row {
+	position: relative;
+}
+
+.col {
+	position: relative;
+	height: auto;
+}
+
+footer {
+	margin-top: -1px;
+}

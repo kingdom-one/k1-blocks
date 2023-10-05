@@ -1,0 +1,17 @@
+@use 'sass:color';
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+@use '../components/equipment';
+
+.hero__background--color {
+	background-color: color.adjust(v.$color-primary, $lightness: 10%) !important;
+}
+
+#section-2 {
+	margin-top: -5rem;
+	padding: 8rem 0;
+	clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+	.subheadline {
+		color: var(--color-grey);
+	}
+}

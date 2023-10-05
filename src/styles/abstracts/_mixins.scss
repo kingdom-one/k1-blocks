@@ -1,0 +1,194 @@
+@forward './bs_breakpoints';
+@use './variables' as v;
+
+@mixin displayFlex(
+	$direction: row,
+	$main: flex-start,
+	$cross: flex-start,
+	$wrap: wrap
+) {
+	display: flex;
+	flex-direction: $direction;
+	flex-wrap: $wrap;
+	justify-content: $main;
+	align-items: $cross;
+}
+
+@mixin dropShadow($color: black) {
+	box-shadow: 2px 4px 8px rgba($color, 0.35);
+}
+
+@mixin fitMedia($selector: img, $fit: contain, $position: center) {
+	#{$selector} {
+		width: 100%;
+		height: 100%;
+		object-fit: $fit;
+		object-position: $position;
+	}
+}
+
+@mixin absolute_100 {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+
+@mixin background-layers($color: black, $opacity: 0.75, $has-overlay: true) {
+	@include absolute_100;
+
+	& > :nth-child(1) {
+		@include absolute_100;
+		z-index: 1;
+	}
+
+	& > :nth-child(2) {
+		@include absolute_100;
+		@if ($has-overlay) {
+			z-index: 1;
+			background-position: center;
+			background-size: cover;
+		} @else {
+			z-index: 2;
+		}
+	}
+
+	& > :nth-child(3) {
+		@include absolute_100;
+		background-color: rgba($color, $opacity);
+		z-index: 2;
+	}
+}
+
+/* /////////////
+// CLIP PATHS
+////////////// */
+
+@mixin clip-path($direction, $has-overlay: true) {
+	@if ('right-bottom' == $direction) {
+		& > :nth-child(1) {
+			clip-path: v.$lift-left-bottom; // lifts left bottom
+		}
+		& > :nth-child(2) {
+			clip-path: v.$lift-right-bottom; // lifts right bottom
+		}
+		@if ($has-overlay) {
+			& > :nth-child(3) {
+				clip-path: v.$lift-right-bottom;
+			}
+		}
+	}
+
+	@if ('left-bottom' == $direction) {
+		& > :nth-child(1) {
+			clip-path: v.$lift-right-bottom;
+		}
+
+		& > :nth-child(2) {
+			clip-path: v.$lift-left-bottom;
+		}
+
+		@if ($has-overlay) {
+			& > :nth-child(3) {
+				clip-path: v.$lift-left-bottom;
+			}
+		}
+	}
+
+	@if ('left-top' == $direction) {
+		& > :nth-child(1) {
+			clip-path: v.$drop-right-top;
+		}
+
+		& > :nth-child(2) {
+			clip-path: v.$drop-left-top;
+		}
+
+		@if ($has-overlay) {
+			& > :nth-child(3) {
+				clip-path: v.$drop-left-top;
+			}
+		}
+	}
+
+	@if ('right-top' == $direction) {
+		& > :nth-child(1) {
+			clip-path: v.$drop-left-top;
+		}
+
+		& > :nth-child(2) {
+			clip-path: v.$drop-right-top;
+		}
+
+		@if ($has-overlay) {
+			& > :nth-child(3) {
+				clip-path: v.$drop-right-top;
+			}
+		}
+	}
+
+	@if ('left' == $direction) {
+		& > :nth-child(1) {
+			clip-path: v.$drop-right;
+		}
+
+		& > :nth-child(2) {
+			clip-path: v.$drop-left;
+		}
+
+		@if ($has-overlay) {
+			& > :nth-child(3) {
+				clip-path: v.$drop-left;
+			}
+		}
+	}
+
+	@if ('right' == $direction) {
+		& > :nth-child(1) {
+			clip-path: v.$drop-left;
+		}
+
+		& > :nth-child(2) {
+			clip-path: v.$drop-right;
+		}
+
+		@if ($has-overlay) {
+			& > :nth-child(3) {
+				clip-path: v.$drop-right;
+			}
+		}
+	}
+
+	@if ('zig-zag-left' == $direction) {
+		& > :nth-child(1) {
+			clip-path: v.$zag-color-right;
+		}
+
+		& > :nth-child(2) {
+			clip-path: v.$zig-color-left;
+		}
+
+		@if ($has-overlay) {
+			& > :nth-child(3) {
+				clip-path: v.$zig-color-left;
+			}
+		}
+	}
+
+	@if ('zig-zag-right' == $direction) {
+		& > :nth-child(1) {
+			clip-path: v.$zag-color-left;
+		}
+
+		& > :nth-child(2) {
+			clip-path: v.$zig-color-right;
+		}
+
+		@if ($has-overlay) {
+			& > :nth-child(3) {
+				clip-path: v.$zig-color-right;
+			}
+		}
+	}
+}

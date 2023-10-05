@@ -1,0 +1,27 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+@use '../components/content-sections/core-services';
+@use '../components/content-sections/three-steps';
+@use '../components/equipment';
+
+.hero {
+	&__content {
+		&--subheadline {
+			font-size: 2.5rem;
+			line-height: 1.8;
+		}
+	}
+}
+
+.costs {
+	&__image {
+		aspect-ratio: 4 / 3;
+
+		&--image {
+			object-fit: contain;
+		}
+	}
+	.clip-color-right {
+		@include m.background-layers;
+	}
+}

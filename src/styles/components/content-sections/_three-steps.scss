@@ -1,0 +1,157 @@
+@use '../../abstracts/mixins' as m;
+@use '../../abstracts/variables' as v;
+.three-steps {
+	&__background {
+		@include m.background-layers(v.$color-grey, 0.9);
+
+		&--color {
+			background-color: var(--color-primary);
+		}
+
+		&--lower {
+			background-size: cover;
+			background-position: center;
+		}
+	}
+}
+
+.three-steps-svg {
+	:where(&#lady-justice) {
+		.a {
+			fill: #fff;
+			stroke: #fff;
+			stroke-width: 2px;
+		}
+		.b {
+			clip-path: url(#lady-justice-a);
+		}
+	}
+
+	:where(&#lady-justice-step-1) {
+		.a,
+		.c {
+			fill: #fff;
+		}
+		.a {
+			stroke: #fff;
+			stroke-width: 2px;
+		}
+		.b {
+			clip-path: url(#lady-justice-step-1-a);
+		}
+		.d {
+			fill: var(--color-primary);
+			font-size: 33px;
+			font-family: v.$font-poppins;
+			font-weight: 700;
+		}
+		.e {
+			filter: url(#b);
+		}
+	}
+
+	:where(&#hr-inventory) {
+		.a {
+			fill: #fff;
+		}
+		.b {
+			clip-path: url(#hr-inventory-a);
+		}
+	}
+
+	:where(&#hr-inventory-step-2) {
+		.a {
+			fill: #fff;
+		}
+		.b {
+			fill: var(--color-primary);
+			font-size: 33px;
+			font-family: v.$font-poppins;
+			font-weight: 700;
+		}
+		.c {
+			clip-path: url(#hr-inventory-step-2-c);
+		}
+		.d {
+			filter: url(#hr-inventory-step-2-a);
+		}
+	}
+
+	:where(&#rocket) {
+		.a {
+			fill: #fff;
+		}
+		.b {
+			clip-path: url(#rocket-a);
+		}
+	}
+
+	:where(&#rocket-step-3) {
+		.a {
+			fill: #fff;
+		}
+		.b {
+			clip-path: url(#rocket-step-3-a);
+		}
+		.c {
+			fill: var(--color-primary);
+			font-size: 33px;
+			font-family: v.$font-poppins;
+			font-weight: 700;
+		}
+		.d {
+			filter: url(#b);
+		}
+	}
+
+	:where(&#marcom-assessment) {
+		.a {
+			fill: #fff;
+		}
+		.b {
+			clip-path: url(#marcom-assessment-a);
+		}
+		.c {
+			fill: var(--color-primary);
+			font-size: 33px;
+			font-family: v.$font-poppins;
+			font-weight: 700;
+		}
+		.d {
+			filter: url(#marcom-assessment-b);
+		}
+	}
+
+	:where(&#icon-checklist-step-2) {
+		.a {
+			fill: none;
+		}
+		.b {
+			clip-path: url(#icon-checklist-step-2-a);
+		}
+		.c {
+			fill: #fff;
+		}
+		.d {
+			fill: var(--color-primary);
+			font-size: 33px;
+			font-family: v.$font-poppins;
+			font-weight: 700;
+		}
+		.e {
+			filter: url(#icon-checklist-step-2-b);
+		}
+	}
+
+	:where(&#icon-checklist) {
+		.a {
+			fill: none;
+		}
+		.b {
+			clip-path: url(#icon-checklist-a);
+		}
+		.c {
+			fill: #fff;
+		}
+	}
+}

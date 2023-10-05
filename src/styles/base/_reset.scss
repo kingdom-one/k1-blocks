@@ -1,0 +1,40 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	font-size: 62.5%;
+	overflow-x: hidden;
+}
+
+body {
+	box-sizing: border-box;
+	font-size: 1.6rem;
+}
+
+:root {
+	--font-headings: #{v.$font-roie};
+	--font-body: #{v.$font-poppins};
+
+	--color-primary: #{v.$color-primary};
+	--color-primary--dark: #{v.$color-primary--dark};
+	--color-primary--darkest: #{v.$color-primary--darkest};
+
+	--color-grey: #{v.$color-grey};
+	--color-grey--light: #{v.$color-grey--light};
+	--color-grey--lightest: #{v.$color-grey--lightest};
+
+	--color-spark-yellow: #{v.$color-spark-yellow};
+	--color-ar-purple: #{v.$color-ar-purple};
+	--color-ar-orange: #{v.$color-ar-orange};
+	--color-ar-yellow: #{v.$color-ar-yellow};
+
+	--transition--standard: #{v.$transition--standard};
+}

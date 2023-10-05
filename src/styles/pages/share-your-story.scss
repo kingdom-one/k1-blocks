@@ -1,0 +1,159 @@
+@use 'sass:color';
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.hero__background--color {
+	background-color: color.adjust(v.$color-primary, $lightness: 10%) !important;
+}
+
+#section-2 {
+	margin-top: -5rem;
+	padding: 8rem 0;
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 95%);
+	.subheadline {
+		color: var(--color-grey);
+	}
+}
+
+.story-examples {
+	#leaves-3 {
+		--size: 15rem;
+		width: var(--size);
+		height: var(--size);
+		stroke: var(--color-primary);
+		position: absolute;
+		transform: scaleY(-1);
+		display: none;
+
+		@include m.media-breakpoint-up(sm) {
+			--size: 8rem;
+			display: block;
+			top: 0rem;
+			right: -4rem;
+		}
+
+		@include m.media-breakpoint-up(md) {
+			--size: 15rem;
+			top: -2rem;
+			right: 0rem;
+		}
+
+		@include m.media-breakpoint-up(lg) {
+			top: -4rem;
+			right: -2rem;
+		}
+
+		@include m.media-breakpoint-up(xl) {
+			right: 6rem;
+		}
+
+		@include m.media-breakpoint-up(xxl) {
+			right: 12rem;
+		}
+	}
+}
+
+.story-icon {
+	--size: 15rem;
+	width: var(--size);
+	height: var(--size);
+	.a {
+		fill: var(--color-primary);
+	}
+
+	:is(&#lightbulb) {
+		.b {
+			clip-path: url(#lightbulb-a);
+		}
+	}
+	:is(&#compass) {
+		.b {
+			clip-path: url(#compass-a);
+		}
+	}
+	:is(&#profile) {
+		.b {
+			clip-path: url(#profile-a);
+		}
+	}
+	:is(&#clock) {
+		.b {
+			clip-path: url(#clock-a);
+		}
+	}
+}
+
+.stories {
+	&__background {
+		@include m.background-layers($opacity: 0.5);
+		&--color {
+			background-color: var(--color-primary--dark);
+		}
+		&--lower {
+			background-color: var(--color-primary--darkest);
+		}
+	}
+	&__content {
+		#leaves-3 {
+			--size: 12rem;
+			width: var(--size);
+			height: var(--size);
+			position: absolute;
+			transform: scaleY(-1);
+			display: block;
+			top: -4rem;
+			left: 32rem;
+		}
+	}
+}
+
+.story {
+	&__video {
+		iframe {
+			aspect-ratio: 16 / 9;
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+
+.how-it-works {
+	#leaves-3 {
+		--size: 12rem;
+		width: var(--size);
+		height: var(--size);
+		stroke: var(--color-primary);
+		position: absolute;
+		left: -12rem;
+		top: -4rem;
+
+		@include m.media-breakpoint-up(lg) {
+			left: unset;
+			right: 30rem;
+			top: -4rem;
+		}
+	}
+}
+
+.how-it-works-icon {
+	--size: 20rem;
+	width: var(--size);
+	height: var(--size);
+	.a {
+		fill: none;
+	}
+
+	.c {
+		fill: var(--color-primary);
+	}
+	:is(&#phone) {
+		.b {
+			clip-path: url(#phone-a);
+		}
+	}
+	:is(&#video) {
+		.b {
+			clip-path: url(#video-a);
+		}
+	}
+}

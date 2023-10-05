@@ -1,0 +1,198 @@
+@use '../abstracts/functions' as fn;
+@use '../abstracts/variables' as v;
+%btn {
+	border: 2px solid transparent;
+	display: inline-block;
+	font-size: 2rem;
+	font-weight: 500;
+	transform: translateY(0);
+	text-transform: uppercase;
+	transition: fn.transition(
+		(background-color, border-color, transform, box-shadow, color)
+	);
+	width: auto;
+
+	&:hover {
+		box-shadow: 2px 4px 8px rgba(black, 0.35);
+		transform: translateY(-4px);
+	}
+}
+%pill-btn {
+	@extend %btn;
+	border-radius: 999px;
+	padding: 0.5em 1em;
+}
+
+.btn {
+	@extend %pill-btn;
+
+	&__primary {
+		&--fill {
+			@extend .btn;
+			background-color: v.$color-primary;
+			color: white;
+
+			a {
+				color: white;
+			}
+
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: white;
+				border-color: v.$color-primary;
+				color: v.$color-primary;
+
+				a {
+					color: v.$color-primary;
+				}
+			}
+		}
+	}
+
+	&__white {
+		&--outline {
+			@extend .btn;
+			background-color: transparent;
+			border-color: white;
+			color: white;
+
+			a {
+				color: white;
+			}
+
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: white;
+				border-color: white;
+				color: v.$color-primary;
+
+				a {
+					color: v.$color-primary;
+				}
+			}
+		}
+	}
+
+	&__black {
+		&--outline {
+			@extend .btn;
+			background-color: transparent;
+			border-color: black;
+			color: black;
+
+			a {
+				color: black;
+			}
+
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: black;
+				border-color: black;
+				color: v.$color-primary;
+
+				a {
+					color: v.$color-primary;
+				}
+			}
+		}
+	}
+
+	&__spark-yellow {
+		&--fill {
+			@extend .btn;
+			background-color: var(--color-spark-yellow);
+			color: white;
+
+			a {
+				color: white;
+			}
+
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: white;
+				border-color: var(--color-spark-yellow);
+				color: var(--color-spark-yellow);
+
+				a {
+					color: var(--color-spark-yellow);
+				}
+			}
+		}
+	}
+
+	&__ar-purple {
+		&--fill {
+			@extend .btn;
+			background-color: var(--color-ar-purple);
+			color: white;
+
+			a {
+				color: white;
+			}
+
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: white;
+				border-color: var(--color-ar-purple);
+				color: var(--color-ar-purple);
+
+				a {
+					color: var(--color-ar-purple);
+				}
+			}
+		}
+	}
+
+	&__ar-yellow {
+		&--outline {
+			@extend .btn;
+			background-color: transparent;
+			border-color: var(--color-ar-yellow);
+			color: var(--color-ar-yellow);
+
+			a {
+				color: var(--color-ar-yellow);
+			}
+
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: var(--color-ar-yellow);
+				color: black;
+
+				a {
+					color: black;
+				}
+			}
+		}
+	}
+}
+
+a.btn {
+	text-decoration: none;
+}
+
+.pill-btn {
+	@extend %pill-btn;
+	&__fill {
+		&--primary {
+			@extend %pill-btn;
+			color: white;
+			background-color: v.$color-primary;
+		}
+	}
+
+	&__outline {
+		&--white {
+			@extend %pill-btn;
+			color: white;
+			border-color: white;
+			background-color: transparent;
+		}
+	}
+}

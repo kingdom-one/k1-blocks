@@ -1,0 +1,28 @@
+@use './header/hamburger';
+@use './header/navbar';
+@use './header/offcanvas';
+@use '../abstracts/variables' as v;
+
+.header {
+	width: 100%;
+	background-color: transparent;
+	position: absolute;
+	top: 0;
+	z-index: 5;
+	color: white;
+
+	.row {
+		justify-content: space-between;
+	}
+
+	a {
+		color: white;
+	}
+
+	&__social-icon {
+		svg {
+			width: 4rem;
+			height: auto;
+		}
+	}
+}

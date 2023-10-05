@@ -1,0 +1,21 @@
+@use '../../abstracts/mixins' as m;
+.final-cta {
+	&__background {
+		@include m.background-layers($opacity: 0.75);
+
+		&--lower {
+			background-position: center;
+			background-size: cover;
+		}
+	}
+
+	&__content {
+		position: relative;
+		z-index: 3;
+	}
+
+	#leaves-3 {
+		transform: scaleX(-1) translateY(-6rem);
+		stroke: white;
+	}
+}

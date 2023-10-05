@@ -1,0 +1,51 @@
+@use '../../abstracts/mixins' as m;
+
+.ar-card {
+	$card-height: 60rem;
+	border: 5px solid var(--color-grey);
+	border-radius: 2rem;
+	overflow: hidden;
+	height: 100%;
+	@include m.displayFlex(column, $wrap: nowrap);
+
+	&__bg {
+		flex: 0 0 calc(1 / 3 * $card-height);
+		width: 100%;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		border-bottom: 3px solid var(--color-grey);
+	}
+
+	&__content {
+		@include m.displayFlex(column);
+		padding: 2rem;
+		flex: 1 1 calc(2 / 3 * $card-height);
+
+		%header_styles {
+			font-family: var(--font-body);
+			color: var(--color-grey);
+		}
+
+		&--title {
+			@extend %header_styles;
+			margin-bottom: 2rem;
+			font-size: 2em;
+		}
+
+		&--btn {
+			margin-top: auto;
+			align-self: center;
+		}
+	}
+	&__features-list {
+		margin-bottom: 2rem;
+
+		&--header {
+			@extend %header_styles;
+			font-size: 1.5em;
+		}
+		&--item {
+		}
+	}
+}

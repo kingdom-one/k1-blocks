@@ -1,0 +1,133 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+@use '../components/content-sections/core-services';
+@use '../components/content-sections/three-steps';
+
+.hero {
+	padding-bottom: 8rem;
+
+	&__background {
+		@include m.background-layers;
+	}
+}
+
+.problems {
+	svg {
+		margin-bottom: 2rem;
+	}
+}
+
+.marcom-frameworks {
+	&__background {
+		@include m.background-layers;
+
+		&--color {
+			background-color: var(--color-primary);
+		}
+	}
+	#leaves-3 {
+		transform: rotate(0) scaleY(-1);
+		stroke: var(--color-primary);
+	}
+}
+
+.statistics {
+	svg {
+		margin-bottom: 2rem;
+	}
+}
+// SVGs
+
+%base_green_icons {
+	$size: 8rem;
+	height: $size;
+	width: $size;
+	.a {
+		fill: none;
+	}
+	.c {
+		fill: var(--color-primary);
+	}
+}
+
+%base_stat_icon {
+	.a {
+		fill: none;
+	}
+	.c {
+		fill: var(--color-grey);
+	}
+	.d,
+	.e {
+		fill: var(--color-primary);
+	}
+	.e {
+		font-size: 5rem;
+		font-family: v.$font-roie;
+	}
+}
+
+.marcom-icon {
+	:where(&#ignored) {
+		@extend %base_green_icons;
+		.b {
+			clip-path: url(#ignored-a);
+		}
+	}
+	:where(&#last-minute-changes) {
+		@extend %base_green_icons;
+		.b {
+			clip-path: url(#last-minute-changes-a);
+		}
+	}
+	:where(&#no-guests) {
+		@extend %base_green_icons;
+		.b {
+			clip-path: url(#no-guests-a);
+		}
+	}
+	:where(&#social-media) {
+		@extend %base_green_icons;
+		.b {
+			clip-path: url(#social-media-a);
+		}
+	}
+	:where(&#unclear-communication) {
+		@extend %base_green_icons;
+		.b {
+			clip-path: url(#unclear-communication-a);
+		}
+	}
+
+	:where(&#stat-21) {
+		@extend %base_stat_icon;
+
+		.b {
+			clip-path: url(#stat-21-a);
+		}
+	}
+
+	:where(&#stat-47) {
+		@extend %base_stat_icon;
+
+		.b {
+			clip-path: url(#stat-47-a);
+		}
+	}
+
+	:where(&#stat-51) {
+		@extend %base_stat_icon;
+
+		.b {
+			clip-path: url(#stat-51-a);
+		}
+	}
+
+	:where(&#stat-88) {
+		@extend %base_stat_icon;
+
+		.b {
+			clip-path: url(#stat-88-a);
+		}
+	}
+}

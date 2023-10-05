@@ -1,0 +1,46 @@
+#leaves-4 {
+	stroke: white;
+	.a,
+	.c {
+		fill: none;
+	}
+	.b {
+		clip-path: url(#leaves-4-a);
+	}
+	.c {
+		stroke: inherit;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-width: 6px;
+	}
+}
+#leaves-3 {
+	transform: rotate(180deg);
+	stroke: white;
+	.a,
+	.c {
+		fill: none;
+	}
+	.b {
+		clip-path: url(#leaves-3-a);
+	}
+	.c {
+		stroke: inherit;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		stroke-width: 6px;
+	}
+}
+
+#icon-healthy-growth {
+	fill: var(--color-primary);
+	.a {
+		fill: none;
+	}
+	.b {
+		clip-path: url(#icon-healthy-growth-a);
+	}
+	.c {
+		fill: inherit;
+	}
+}

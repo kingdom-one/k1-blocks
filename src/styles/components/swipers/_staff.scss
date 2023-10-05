@@ -1,0 +1,17 @@
+@use './abstracts';
+@use './base';
+
+:where(#staff-swiper) {
+	.swiper-slide {
+		@extend %slides;
+	}
+
+	.swiper-button-next,
+	.swiper-button-prev {
+		color: var(--color-primary);
+	}
+
+	.swiper-pagination-bullet-active {
+		background-color: var(--color-primary);
+	}
+}

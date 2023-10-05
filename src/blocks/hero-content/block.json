@@ -1,0 +1,16 @@
+{
+	"$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+	"apiVersion": 3,
+	"name": "k1-block-theme/hero-content",
+	"title": "Hero Content",
+	"category": "text",
+	"description": "The hero content",
+	"textdomain": "kingdom_one",
+	"attributes": {
+		"text": {
+			"type": "string"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./index.css"
+}
