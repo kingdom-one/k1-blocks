@@ -6,7 +6,7 @@
 			"name": "Primary Green"
 		},
 		{
-			"slug": "primary--dark",
+			"slug": "primary-dark",
 			"color": "#00644b",
 			"name": "Dark Green"
 		},
@@ -49,6 +49,21 @@
 			"slug": "grey-lightest",
 			"color": "#dbdbdb",
 			"name": "Super Light Grey"
+		},
+		{
+			"slug": "white",
+			"color": "#fff",
+			"name": "White"
+		},
+		{
+			"slug": "black",
+			"color": "#000",
+			"name": "Black"
+		},
+		{
+			"slug": "drop-shadow",
+			"color": "rgba(0,0,0,.35)",
+			"name": "Drop Shadow"
 		}
 	]
 }

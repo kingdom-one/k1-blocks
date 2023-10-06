@@ -11,9 +11,8 @@
 			"full"
 		],
 		"color": {
-			"background": true,
 			"text": false,
-			"enableContrastChecker": false
+			"background": true
 		}
 	},
 	"attributes": {
@@ -44,6 +43,23 @@
 		"leaves": {
 			"type": "string",
 			"default": "3"
+		},
+		"headline": {
+			"type": "string"
+		},
+		"headlineColor": {
+			"type": "string",
+			"default": "white"
+		},
+		"subheadline": {
+			"type": "string"
+		},
+		"subheadlineColor": {
+			"type": "string",
+			"default": "white"
+		},
+		"pageTitle": {
+			"type": "string"
 		}
 	},
 	"editorScript": "file:./index.js",

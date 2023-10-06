@@ -16,7 +16,6 @@ class Plugin_Loader {
 	public function register_blocks() {
 		$blocks = array(
 			'hero',
-			'hero-content',
 		);
 
 		foreach ( $blocks as $block ) {
