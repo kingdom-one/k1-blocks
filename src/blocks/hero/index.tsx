@@ -1,8 +1,8 @@
 import { registerBlockType } from '@wordpress/blocks';
 import EditComponent from './Edit';
-import SaveComponent from './Save';
 import block from './block.json';
-import '../../styles/components/content-sections/_hero-section.scss';
+import './main.scss';
+import SaveComponent from './Save';
 
 registerBlockType( block.name, {
 	title: block.title,

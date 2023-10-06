@@ -7,8 +7,23 @@
 	"description": "The hero content",
 	"textdomain": "kingdom_one",
 	"attributes": {
-		"text": {
-			"type": "string"
+		"headline": {
+			"type": "string",
+			"default": "the headline"
+		},
+		"subheadline": {
+			"type": "string",
+			"default": "the subheadline"
+		},
+		"textColor": {
+			"type": "string",
+			"default": "#ffffff"
+		}
+	},
+	"supports": {
+		"color": {
+			"text": true,
+			"background": false
 		}
 	},
 	"editorScript": "file:./index.js",

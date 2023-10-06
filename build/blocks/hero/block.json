@@ -9,12 +9,41 @@
   "supports": {
     "align": [
       "full"
-    ]
+    ],
+    "color": {
+      "background": true,
+      "text": false,
+      "enableContrastChecker": false
+    }
   },
   "attributes": {
     "align": {
       "type": "string",
       "default": "full"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "primary-dark"
+    },
+    "hasBackgroundImage": {
+      "type": "boolean",
+      "default": false
+    },
+    "backgroundImage": {
+      "type": "string",
+      "default": ""
+    },
+    "colorDirection": {
+      "type": "string",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "default": "right"
+    },
+    "leaves": {
+      "type": "string",
+      "default": "3"
     }
   },
   "editorScript": "file:./index.js",

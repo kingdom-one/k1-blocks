@@ -1,0 +1,54 @@
+{
+	"palette": [
+		{
+			"slug": "primary",
+			"color": "#00ae83",
+			"name": "Primary Green"
+		},
+		{
+			"slug": "primary--dark",
+			"color": "#00644b",
+			"name": "Dark Green"
+		},
+		{
+			"slug": "academy-green",
+			"color": "#2e3636",
+			"name": "Academy Green"
+		},
+		{
+			"slug": "spark-yellow",
+			"color": "#f4c063",
+			"name": "Spark Yellow"
+		},
+		{
+			"slug": "ar-purple",
+			"color": "#9d9dcd",
+			"name": "Above Reproach Purple"
+		},
+		{
+			"slug": "ar-orange",
+			"color": "#e37f5a",
+			"name": "Above Reproach Orange"
+		},
+		{
+			"slug": "ar-yellow",
+			"color": "#f4eb27",
+			"name": "Above Reproach Yellow"
+		},
+		{
+			"slug": "grey",
+			"color": "#4b4b4b",
+			"name": "Grey"
+		},
+		{
+			"slug": "grey-light",
+			"color": "#707070",
+			"name": "Light Grey"
+		},
+		{
+			"slug": "grey-lightest",
+			"color": "#dbdbdb",
+			"name": "Super Light Grey"
+		}
+	]
+}

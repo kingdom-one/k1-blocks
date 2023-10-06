@@ -1,5 +1,4 @@
-@forward './bs_breakpoints';
-@use './variables' as v;
+@forward "./bs_breakpoints";
 
 @mixin displayFlex(
 	$direction: row,
@@ -66,128 +65,128 @@
 ////////////// */
 
 @mixin clip-path($direction, $has-overlay: true) {
-	@if ('right-bottom' == $direction) {
+	@if ("right-bottom" == $direction) {
 		& > :nth-child(1) {
-			clip-path: v.$lift-left-bottom; // lifts left bottom
+			clip-path: var(--lift-left-bottom); // lifts left bottom
 		}
 		& > :nth-child(2) {
-			clip-path: v.$lift-right-bottom; // lifts right bottom
+			clip-path: var(--lift-right-bottom); // lifts right bottom
 		}
 		@if ($has-overlay) {
 			& > :nth-child(3) {
-				clip-path: v.$lift-right-bottom;
+				clip-path: var(--lift-right-bottom);
 			}
 		}
 	}
 
-	@if ('left-bottom' == $direction) {
+	@if ("left-bottom" == $direction) {
 		& > :nth-child(1) {
-			clip-path: v.$lift-right-bottom;
+			clip-path: var(--lift-right-bottom);
 		}
 
 		& > :nth-child(2) {
-			clip-path: v.$lift-left-bottom;
+			clip-path: var(--lift-left-bottom);
 		}
 
 		@if ($has-overlay) {
 			& > :nth-child(3) {
-				clip-path: v.$lift-left-bottom;
+				clip-path: var(--lift-left-bottom);
 			}
 		}
 	}
 
-	@if ('left-top' == $direction) {
+	@if ("left-top" == $direction) {
 		& > :nth-child(1) {
-			clip-path: v.$drop-right-top;
+			clip-path: var(--drop-right-top);
 		}
 
 		& > :nth-child(2) {
-			clip-path: v.$drop-left-top;
+			clip-path: var(--drop-left-top);
 		}
 
 		@if ($has-overlay) {
 			& > :nth-child(3) {
-				clip-path: v.$drop-left-top;
+				clip-path: var(--drop-left-top);
 			}
 		}
 	}
 
-	@if ('right-top' == $direction) {
+	@if ("right-top" == $direction) {
 		& > :nth-child(1) {
-			clip-path: v.$drop-left-top;
+			clip-path: var(--drop-left-top);
 		}
 
 		& > :nth-child(2) {
-			clip-path: v.$drop-right-top;
+			clip-path: var(--drop-right-top);
 		}
 
 		@if ($has-overlay) {
 			& > :nth-child(3) {
-				clip-path: v.$drop-right-top;
+				clip-path: var(--drop-right-top);
 			}
 		}
 	}
 
-	@if ('left' == $direction) {
+	@if ("left" == $direction) {
 		& > :nth-child(1) {
-			clip-path: v.$drop-right;
+			clip-path: var(--drop-right);
 		}
 
 		& > :nth-child(2) {
-			clip-path: v.$drop-left;
+			clip-path: var(--drop-left);
 		}
 
 		@if ($has-overlay) {
 			& > :nth-child(3) {
-				clip-path: v.$drop-left;
+				clip-path: var(--drop-left);
 			}
 		}
 	}
 
-	@if ('right' == $direction) {
+	@if ("right" == $direction) {
 		& > :nth-child(1) {
-			clip-path: v.$drop-left;
+			clip-path: var(--drop-left);
 		}
 
 		& > :nth-child(2) {
-			clip-path: v.$drop-right;
+			clip-path: var(--drop-right);
 		}
 
 		@if ($has-overlay) {
 			& > :nth-child(3) {
-				clip-path: v.$drop-right;
+				clip-path: var(--drop-right);
 			}
 		}
 	}
 
-	@if ('zig-zag-left' == $direction) {
+	@if ("zig-zag-left" == $direction) {
 		& > :nth-child(1) {
-			clip-path: v.$zag-color-right;
+			clip-path: var(--zag-color-right);
 		}
 
 		& > :nth-child(2) {
-			clip-path: v.$zig-color-left;
+			clip-path: var(--zig-color-left);
 		}
 
 		@if ($has-overlay) {
 			& > :nth-child(3) {
-				clip-path: v.$zig-color-left;
+				clip-path: var(--zig-color-left);
 			}
 		}
 	}
 
-	@if ('zig-zag-right' == $direction) {
+	@if ("zig-zag-right" == $direction) {
 		& > :nth-child(1) {
-			clip-path: v.$zag-color-left;
+			clip-path: var(--zag-color-left);
 		}
 
 		& > :nth-child(2) {
-			clip-path: v.$zig-color-right;
+			clip-path: var(--zig-color-right);
 		}
 
 		@if ($has-overlay) {
 			& > :nth-child(3) {
-				clip-path: v.$zig-color-right;
+				clip-path: var(--zig-color-right);
 			}
 		}
 	}
