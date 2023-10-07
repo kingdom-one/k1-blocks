@@ -1,0 +1,38 @@
+@use "./mixins" as m;
+
+.color-container {
+	&__background {
+		@include m.background-layers;
+	}
+}
+
+.clip-color-left-bottom {
+	@include m.clip-path("left-bottom");
+}
+
+.clip-color-left {
+	@include m.clip-path("left");
+}
+
+.clip-color-right-bottom {
+	@include m.clip-path("right-bottom");
+}
+
+.clip-color-right {
+	@include m.clip-path("right");
+}
+.clip-color-right-top {
+	@include m.clip-path("right-top");
+}
+
+.clip-color-left-top {
+	@include m.clip-path("left-top");
+}
+
+.clip-color-zig-zag-left {
+	@include m.clip-path("zig-zag-left");
+}
+
+.clip-color-zig-zag-right {
+	@include m.clip-path("zig-zag-right");
+}

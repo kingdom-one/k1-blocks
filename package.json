@@ -1,6 +1,6 @@
 {
 	"name": "k1-blocks",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "The blocks for the k1 theme",
 	"prettier": "@wordpress/prettier-config",
 	"browserslist": [

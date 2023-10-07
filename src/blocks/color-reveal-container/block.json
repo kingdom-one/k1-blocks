@@ -1,10 +1,10 @@
 {
 	"$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
 	"apiVersion": 3,
-	"name": "k1-block-theme/hero",
-	"title": "Hero Section",
+	"name": "k1-block-theme/color-reveal-container",
+	"title": "Color Reveal (container)",
 	"category": "k1-blocks",
-	"description": "The hero container",
+	"description": "The section container that allows for colors to be displayed",
 	"textdomain": "kingdom_one",
 	"supports": {
 		"align": [
@@ -36,30 +36,19 @@
 			"type": "string",
 			"enum": [
 				"left",
-				"right"
+				"right",
+				"zig-zag-left",
+				"zig-zag-right",
+				"right-bottom",
+				"left-bottom",
+				"left-top",
+				"right-top"
 			],
-			"default": "right"
+			"default": "right-top"
 		},
-		"leaves": {
-			"type": "string",
-			"default": "3"
-		},
-		"headline": {
-			"type": "string"
-		},
-		"headlineColor": {
-			"type": "string",
-			"default": "white"
-		},
-		"subheadline": {
-			"type": "string"
-		},
-		"subheadlineColor": {
-			"type": "string",
-			"default": "white"
-		},
-		"pageTitle": {
-			"type": "string"
+		"opacity": {
+			"type": "integer",
+			"default": "35"
 		}
 	},
 	"editorScript": "file:./index.js",
