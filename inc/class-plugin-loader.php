@@ -17,7 +17,11 @@ class Plugin_Loader {
 	public function register_blocks() {
 		$blocks = array(
 			'hero',
-			'color-reveal-container'
+			'color-reveal-container',
+			'relationship-slider',
+			'icon-grid',
+			'testimonials-slider',
+			'text-callout',
 		);
 
 		foreach ( $blocks as $block ) {

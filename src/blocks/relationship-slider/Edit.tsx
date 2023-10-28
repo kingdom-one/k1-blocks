@@ -1,35 +1,38 @@
 import React, { useState, useEffect } from '@wordpress/element';
+import apiFetch from '@wordpress/api-fetch';
 import {
 	RichText,
 	useBlockProps,
 	InspectorControls,
 	MediaUpload,
 	MediaUploadCheck,
-	InnerBlocks,
 } from '@wordpress/block-editor';
-import apiFetch from '@wordpress/api-fetch';
 import {
 	PanelBody,
 	PanelRow,
-	SelectControl,
 	Button,
 	ButtonGroup,
-	RangeControl,
+	ColorPalette,
 } from '@wordpress/components';
+import colors from '../../assets/colors.json';
 
 export default function EditComponent( { attributes, setAttributes } ) {
 	const {
 		hasBackgroundImage,
 		backgroundImage,
-		backgroundColor,
-		colorDirection,
-		opacity,
+		headline,
+		subheadline,
+		headlineColor,
+		subheadlineColor,
 	} = attributes;
 
 	const blockProps = useBlockProps( {
-		className: 'color-container my-5 py-5',
+		className: 'stakes bg-grey',
+		style: { padding: 40 },
 	} );
+
 	const [ imgID, setImgID ] = useState< number | undefined >( undefined );
+
 	useEffect( () => {
 		async function getImg() {
 			if ( ! imgID ) return;
@@ -91,88 +94,82 @@ export default function EditComponent( { attributes, setAttributes } ) {
 							/>
 						</MediaUploadCheck>
 					</PanelRow>
+				</PanelBody>
+				<PanelBody title="Headline Color" initialOpen={ false }>
 					<PanelRow>
-						<p style={ { marginTop: 20 } }>
-							Set the Background Color with the Styles Pane.
-						</p>
-					</PanelRow>
-					<PanelRow>
-						<SelectControl
-							label="Color Direction"
-							value={ colorDirection }
-							options={ [
-								{
-									label: 'Left',
-									value: 'left',
-								},
-								{
-									label: 'Right',
-									value: 'right',
-								},
-								{
-									label: 'Left Top',
-									value: 'left-top',
-								},
-								{
-									label: 'Right Top',
-									value: 'right-top',
-								},
-								{
-									label: 'Zig Zag Left',
-									value: 'zig-zag-left',
-								},
-								{
-									label: 'Zig Zag Right',
-									value: 'zig-zag-right',
-								},
-								{
-									label: 'Right Bottom',
-									value: 'right-bottom',
-								},
-								{
-									label: 'Left Bottom',
-									value: 'left-bottom',
-								},
-							] }
-							onChange={ ( colorDirection ) =>
-								setAttributes( { colorDirection } )
-							}
+						<ColorPalette
+							colors={ colors.palette }
+							onChange={ ( val ) => {
+								setAttributes( { headlineColor: val } );
+							} }
+							clearable={ false }
+							value={ headlineColor }
 						/>
 					</PanelRow>
+				</PanelBody>
+				<PanelBody title="Subheadline Color" initialOpen={ false }>
 					<PanelRow>
-						Overlay Color
-						<RangeControl
-							label={ 'Opacity' }
-							value={ opacity }
-							onChange={ ( opacity ) =>
-								setAttributes( { opacity } )
-							}
-							min={ 0 }
-							max={ 100 }
+						<ColorPalette
+							colors={ colors.palette }
+							onChange={ ( val ) => {
+								setAttributes( { subheadlineColor: val } );
+							} }
+							clearable={ false }
+							value={ subheadlineColor }
 						/>
 					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
 			<section { ...blockProps }>
-				<div
-					className={ `color-container__background clip-color-${ colorDirection }` }
-				>
-					<div className="color-container__background--color" />
+				<div className="stakes__background">
 					{ hasBackgroundImage ? (
 						<>
 							<div
-								className="color-container__background--lower"
+								className="stakes__background--image"
 								style={ {
 									backgroundImage: `url(${ backgroundImage })`,
 								} }
 							/>
-							<div className="color-container__background--upper" />
+							<div
+								className="stakes__background--color"
+								style={ { '--overlay': '.75' } }
+							/>
 						</>
 					) : (
-						<div className="color-container__background--lower" />
+						<div className="stakes__background--color" />
 					) }
 				</div>
-				<InnerBlocks />
+				<div className="stakes__content">
+					<span>Slider Section Headline:</span>
+					<RichText
+						placeholder="The Slider Section headline"
+						value={ headline }
+						onChange={ ( headline ) =>
+							setAttributes( { headline } )
+						}
+						className="headline"
+						tagName="h2"
+						allowedFormats={ [ 'custom/headline-color' ] }
+						style={ {
+							color: headlineColor,
+						} }
+					/>
+					<span>Slider Section Subheadline:</span>
+					<RichText
+						placeholder="write something nice..."
+						value={ subheadline }
+						onChange={ ( subheadline ) =>
+							setAttributes( { subheadline } )
+						}
+						className="subheadline"
+						tagName="p"
+						allowedFormats={ [ 'core/paragraph' ] }
+						style={ {
+							color: subheadlineColor,
+							fontSize: 18,
+						} }
+					/>
+				</div>
 			</section>
 		</>
 	);

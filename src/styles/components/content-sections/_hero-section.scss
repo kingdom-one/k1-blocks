@@ -1,9 +1,9 @@
-@use '../../abstracts/mixins' as m;
-@use '../../abstracts/variables' as v;
+@use "../../abstracts/mixins" as m;
+@use "../../abstracts/variables" as v;
 
 .hero {
 	position: relative;
-	display: block;
+	display: flex;
 	height: unset;
 	padding-top: 30rem;
 	padding-bottom: 4rem;
@@ -32,11 +32,11 @@
 		}
 
 		&.color-right {
-			@include m.clip-path('right-bottom');
+			@include m.clip-path("right-bottom");
 		}
 
 		&.color-left {
-			@include m.clip-path('left-bottom');
+			@include m.clip-path("left-bottom");
 		}
 	}
 

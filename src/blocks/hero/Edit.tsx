@@ -16,6 +16,7 @@ import {
 	Button,
 	ButtonGroup,
 	ColorPalette,
+	ToggleControl,
 } from '@wordpress/components';
 import colors from '../../assets/colors.json';
 
@@ -23,6 +24,21 @@ function getThePostId(): string | null {
 	const url = new URL( window.location.href );
 	return url.searchParams.get( 'post' );
 }
+
+const icons = [
+	{
+		title: 'HR',
+	},
+	{
+		title: 'Finance',
+	},
+	{
+		title: 'Marketing & Communications',
+	},
+	{
+		title: 'Business Administration',
+	},
+];
 
 export function getTheLeaves( leaves: string ) {
 	switch ( leaves ) {
@@ -47,12 +63,15 @@ export default function EditComponent( { attributes, setAttributes } ) {
 		headlineColor,
 		subheadlineColor,
 		pageTitle,
+		bottomBar,
 	} = attributes;
 
 	const blockProps = useBlockProps( {
-		className: 'hero d-flex flex-column justify-content-center',
+		className: 'hero',
 	} );
+
 	const [ imgID, setImgID ] = useState< number | undefined >( undefined );
+
 	useEffect( () => {
 		async function getImg() {
 			if ( ! imgID ) return;
@@ -127,9 +146,14 @@ export default function EditComponent( { attributes, setAttributes } ) {
 						</MediaUploadCheck>
 					</PanelRow>
 					<PanelRow>
-						<p style={ { marginTop: 20 } }>
-							Set the Background Color with the Styles Pane.
-						</p>
+						<ColorPalette
+							colors={ colors.palette }
+							onChange={ ( val ) => {
+								setAttributes( { backgroundColor: val } );
+							} }
+							clearable={ false }
+							value={ backgroundColor }
+						/>
 					</PanelRow>
 					<PanelRow>
 						<SelectControl
@@ -200,13 +224,24 @@ export default function EditComponent( { attributes, setAttributes } ) {
 						/>
 					</PanelRow>
 				</PanelBody>
+				<PanelBody title="Bottom Icon Bar" initialOpen={ false }>
+					<PanelRow>
+						<ToggleControl
+							label="Display Bottom Icon Bar"
+							checked={ bottomBar }
+							onChange={ ( bottomBar ) =>
+								setAttributes( { bottomBar } )
+							}
+						/>
+					</PanelRow>
+				</PanelBody>
 			</InspectorControls>
 			<section { ...blockProps }>
 				<div className={ `hero__background color-${ colorDirection }` }>
 					<div
 						className="hero__background--color"
 						style={ {
-							backgroundColor: `var(--wp--preset--color-${ backgroundColor })`,
+							backgroundColor: `${ backgroundColor }`,
 						} }
 					/>
 					{ hasBackgroundImage && (
@@ -288,6 +323,21 @@ export default function EditComponent( { attributes, setAttributes } ) {
 						</div>
 					</div>
 				</div>
+				<aside className="top-talent-groups z-3">
+					<div className="container">
+						<div className="row justify-content-center">
+							{ icons.map( ( icon ) => {
+								return (
+									<div className="icon d-flex flex-column text-white align-items-center text-center col-12 col-lg-3 my-5 my-lg-0">
+										<span className="mt-5 fs-5 icon__label">
+											{ icon.title }
+										</span>
+									</div>
+								);
+							} ) }
+						</div>
+					</div>
+				</aside>
 			</section>
 		</>
 	);

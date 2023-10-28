@@ -12,17 +12,21 @@
     ],
     "color": {
       "text": false,
-      "background": true
+      "background": false
     }
   },
   "attributes": {
+    "bottomBar": {
+      "type": "boolean",
+      "default": false
+    },
     "align": {
       "type": "string",
       "default": "full"
     },
     "backgroundColor": {
       "type": "string",
-      "default": "primary-dark"
+      "default": "#00644b"
     },
     "hasBackgroundImage": {
       "type": "boolean",
@@ -63,5 +67,6 @@
     }
   },
   "editorScript": "file:./index.js",
-  "style": "file:./index.css"
+  "style": "file:./index.css",
+  "render": "file:./render.php"
 }
