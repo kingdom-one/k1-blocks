@@ -1,0 +1,19 @@
+@use "../../styles/components/swipers/abstracts";
+@use "../../styles/components/swipers/base";
+
+.testimonials {
+	.swiper-pagination-bullet-active {
+		background-color: var(--wp--preset--color--primary);
+	}
+	:is(#testimonials-swiper) {
+		.swiper-slide {
+			@extend %slides;
+			border: 2px solid black;
+		}
+
+		.swiper-button-next,
+		.swiper-button-prev {
+			color: var(--wp--preset--color--primary);
+		}
+	}
+}

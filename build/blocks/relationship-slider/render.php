@@ -1,24 +1,27 @@
 <?php
 /**
  * Relationship First Slider
+ *
+ * @package KingdomOne
  */
+
 ?>
 <section class="stakes">
 	<div class="stakes__background clip-color-left">
 		<div class="stakes__background--color"></div>
-		<?php if ($attributes['hasBackgroundImage']) :?>
-		<div class="stakes__background--lower" style="background-image:url(<?php echo $attributes['backgroundImage'];?>)"></div>
+		<?php if ( $attributes['hasBackgroundImage'] ) : ?>
+		<div class="stakes__background--lower" style="background-image:url(<?php echo $attributes['backgroundImage']; ?>)"></div>
 		<div class="stakes__background--upper"></div>
-		<?php endif;?>
+		<?php endif; ?>
 	</div>
 	<div class="stakes__content py-5">
 		<div class="container">
 			<div class="row mb-5">
 				<div class="col d-flex flex-column text-center text-white">
-					<h2 class="headline" style="<?php echo "color:{$attributes['headlineColor']}";?>">
+					<h2 class="headline" style="<?php echo "color:{$attributes['headlineColor']}"; ?>">
 						<?php echo $attributes['headline']; ?>
 					</h2>
-					<div class="subheadline mt-3 mb-5" style="<?php echo "color:{$attributes['subheadlineColor']}";?>"><?php echo $attributes['subheadline']; ?>
+					<div class="subheadline mt-3 mb-5" style="<?php echo "color:{$attributes['subheadlineColor']}"; ?>"><?php echo $attributes['subheadline']; ?>
 					</div>
 				</div>
 			</div>
@@ -46,10 +49,10 @@
 										'Frustrating piecemeal systems and processes',
 									);
 									echo "<ul class='fw-bold mb-2'>";
-									foreach($avoid_list as $list_item) {
+									foreach ( $avoid_list as $list_item ) {
 										echo "<li>{$list_item}</li>";
 									}
-									echo "</ul>";
+									echo '</ul>';
 									?>
 								</div>
 								<div class="swiper-slide d-flex flex-column align-items-center">
@@ -129,7 +132,6 @@
 												</g>
 											</svg> <br /> <span class='fw-bold'>Knowledge</span></li>
 									</ul>
-									<?php //$content->cta_button(); ?>
 								</div>
 							</div>
 						</div>

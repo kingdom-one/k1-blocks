@@ -6,5 +6,10 @@ import './main.scss';
 
 registerBlockType( block.name, {
 	title: block.title,
-	edit: () => <PlaceholderBlock title="Testimonials Slider" />,
+	edit: () => (
+		<PlaceholderBlock
+			title="Testimonials Slider"
+			message='Edit the slides with the "Testimonials" tab in the WordPress Dashboard.'
+		/>
+	),
 } );

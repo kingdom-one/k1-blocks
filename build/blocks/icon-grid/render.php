@@ -17,7 +17,7 @@
 	</div>
 	<div class="community__grid--container">
 		<div class="container">
-			<div class="community__grid">
+			<div class="community-grid">
 				<?php
 					$grid_items = array(
 						array(
@@ -67,12 +67,12 @@
 						),
 					);
 					foreach ( $grid_items as $item ) {
-						$markup  = "<div class='community__grid--item text-center'><div class='community__grid-item-content'>";
+						$markup  = "<div class='community-grid__item--container text-center'><div class='community-grid__item'>";
 						$markup .= get_the_k1_icon( $item['svg'] );
-						$markup .= "<h3 class='community__grid__label'>{$item['title']}</h3>";
-						$markup .= "<ul class='community__grid--list list-unstyled text-center'>";
+						$markup .= "<h3 class='community-grid__label'>{$item['title']}</h3>";
+						$markup .= "<ul class='community-grid__list list-unstyled text-center'>";
 						foreach ( $item['text'] as $list_item ) {
-							$markup .= "<li class='community__grid--list-item'>{$list_item}</li>";
+							$markup .= "<li class='community-grid__list-item'>{$list_item}</li>";
 						}
 						$markup .= '</ul>';
 						$markup .= '</div></div>';

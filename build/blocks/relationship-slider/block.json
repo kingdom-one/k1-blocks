@@ -32,6 +32,7 @@
     }
   },
   "editorScript": "file:./index.js",
+  "viewScript": "file:./slider.js",
   "style": "file:./index.css",
   "render": "file:./render.php"
 }

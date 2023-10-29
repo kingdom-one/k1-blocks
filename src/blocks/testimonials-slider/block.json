@@ -7,6 +7,7 @@
 	"description": "Block that contains the Testimonials slider",
 	"textdomain": "kingdom_one",
 	"editorScript": "file:./index.js",
+	"viewScript": "file:./testimonials-slider.ts",
 	"style": "file:./index.css",
 	"render": "file:./render.php"
 }

@@ -1,1 +1,1 @@
-
+.testimonials :is(#testimonials-swiper) .swiper-slide{margin-left:4rem;margin-right:4rem;padding:5rem}.swiper{max-height:60rem;width:100%}.testimonials .swiper-pagination-bullet-active{background-color:var(--wp--preset--color--primary)}.testimonials :is(#testimonials-swiper) .swiper-slide{border:2px solid #000}.testimonials :is(#testimonials-swiper) .swiper-button-next,.testimonials :is(#testimonials-swiper) .swiper-button-prev{color:var(--wp--preset--color--primary)}
