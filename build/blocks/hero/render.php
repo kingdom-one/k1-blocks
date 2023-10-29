@@ -54,9 +54,8 @@ $subheadline_color = $attributes['subheadlineColor'];
 				foreach ( $attributes['icons'] as $icon ) {
 					$markup = "<div class='icon d-flex flex-column text-white align-items-center text-center col-12 col-lg-3 my-5 my-lg-0'>";
 					$markup .= get_the_k1_icon($icon['value'],$attributes['iconColor']);
-					$markup .= "<span class='mt-5 fs-5 icon__label'>{$icon['label']}</span></div>";
+					$markup .= "<span class='mt-5 fs-5 icon__label' style='color:{$attributes['iconColor']}'>{$icon['label']}</span></div>";
 					echo $markup;
-					
 				}
 				?>
 			</div>

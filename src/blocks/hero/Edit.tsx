@@ -89,10 +89,14 @@ export default function EditComponent( { attributes, setAttributes } ) {
 	}
 
 	function setIcon( icon: string, index: number ) {
-		const [ newIcon ] = iconSetSelectOptions.filter(
+		const newIcons = [ ...icons ];
+		const newIcon = iconSetSelectOptions.find(
 			( iconSet ) => iconSet.value === icon
 		);
-		setAttributes( ( icons[ index ] = newIcon ) );
+		if ( newIcon ) {
+			newIcons[ index ] = newIcon;
+			setAttributes( { icons: newIcons } );
+		}
 	}
 
 	return (
@@ -233,24 +237,26 @@ export default function EditComponent( { attributes, setAttributes } ) {
 						</PanelRow>
 					) }
 					{ bottomBar &&
-						icons.map( ( _, index: number ) => (
-							<PanelRow>
-								<SelectControl
-									label={ `Icon ${ index + 1 }` }
-									value={ icons[ index ] }
-									options={ [
-										{
-											value: null,
-											label: 'Select an Icon',
-										},
-										...iconSetSelectOptions,
-									] }
-									onChange={ ( icon: string ) =>
-										setIcon( icon, index )
-									}
-								/>
-							</PanelRow>
-						) ) }
+						icons.map( ( option, index: number ) => {
+							return (
+								<PanelRow key={ option.value }>
+									<SelectControl
+										label={ `Icon ${ index + 1 }` }
+										value={ option.value ?? null }
+										options={ [
+											{
+												value: null,
+												label: 'Select an Icon',
+											},
+											...iconSetSelectOptions,
+										] }
+										onChange={ ( icon: string ) =>
+											setIcon( icon, index )
+										}
+									/>
+								</PanelRow>
+							);
+						} ) }
 				</PanelBody>
 			</InspectorControls>
 			<section { ...blockProps }>
@@ -347,7 +353,10 @@ export default function EditComponent( { attributes, setAttributes } ) {
 							<div className="row justify-content-center">
 								{ icons.map( ( icon ) => {
 									return (
-										<div className="icon d-flex flex-column text-white align-items-center text-center col-12 col-lg-3 my-5 my-lg-0">
+										<div
+											className="icon d-flex flex-column align-items-center text-center col-12 col-lg-3 my-5 my-lg-0"
+											style={ { color: iconColor } }
+										>
 											{ K1Icon( icon.value, iconColor ) }
 											<span className="mt-5 fs-5 icon__label">
 												{ icon.label }
