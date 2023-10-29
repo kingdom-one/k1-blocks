@@ -51,12 +51,28 @@ $subheadline_color = $attributes['subheadlineColor'];
 		<div class="container">
 			<div class="row justify-content-center">
 				<?php
-				foreach ( $attributes['icons'] as $icon ) {
-					$markup = "<div class='icon d-flex flex-column text-white align-items-center text-center col-12 col-lg-3 my-5 my-lg-0'>";
-					$markup .= get_the_k1_icon($icon['value'],$attributes['iconColor']);
-					$markup .= "<span class='mt-5 fs-5 icon__label'>{$icon['label']}</span></div>";
-					echo $markup;
-					
+				$icons = array(
+					array(
+						'title' => 'H.R.',
+						'file'  => 'hr',
+					),
+					array(
+						'title' => 'Finance',
+						'file'  => 'finance',
+					),
+					array(
+						'title' => 'Marketing & <br> Communications',
+						'file'  => 'marcom',
+					),
+					array(
+						'title' => 'Business Administration',
+						'file'  => 'staffing',
+					),
+				);
+				foreach ( $icons as $icon ) {
+					$filename = "tg-{$icon['file']}-icon";
+					$svg      = k1_get_svg_asset( $filename, true, false );
+					echo "<div class='icon d-flex flex-column text-white align-items-center text-center col-12 col-lg-3 my-5 my-lg-0'><img class='icon__svg' src='{$svg}' /><span class='mt-5 fs-5 icon__label'>{$icon['title']}</span></div>";
 				}
 				?>
 			</div>

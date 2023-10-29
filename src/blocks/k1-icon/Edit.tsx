@@ -17,16 +17,28 @@ import {
 	ColorPalette,
 	ToggleControl,
 } from '@wordpress/components';
-
-import { iconSetSelectOptions } from '../../assets/icon-set/iconSetSelectOptions';
 import colors from '../../assets/colors.json';
 import Leaves from '../../assets/leaves/leaves';
-import K1Icon from '../../assets/icon-set/k1Icons';
 
 function getThePostId(): string | null {
 	const url = new URL( window.location.href );
 	return url.searchParams.get( 'post' );
 }
+
+const icons = [
+	{
+		title: 'HR',
+	},
+	{
+		title: 'Finance',
+	},
+	{
+		title: 'Marketing & Communications',
+	},
+	{
+		title: 'Business Administration',
+	},
+];
 
 export default function EditComponent( { attributes, setAttributes } ) {
 	const {
@@ -41,8 +53,6 @@ export default function EditComponent( { attributes, setAttributes } ) {
 		subheadlineColor,
 		pageTitle,
 		bottomBar,
-		icons,
-		iconColor,
 	} = attributes;
 
 	const blockProps = useBlockProps( {
@@ -86,13 +96,6 @@ export default function EditComponent( { attributes, setAttributes } ) {
 			hasBackgroundImage: false,
 		} );
 		setImgID( undefined );
-	}
-
-	function setIcon( icon: string, index: number ) {
-		const [ newIcon ] = iconSetSelectOptions.filter(
-			( iconSet ) => iconSet.value === icon
-		);
-		setAttributes( ( icons[ index ] = newIcon ) );
 	}
 
 	return (
@@ -215,42 +218,11 @@ export default function EditComponent( { attributes, setAttributes } ) {
 						<ToggleControl
 							label="Display Bottom Icon Bar"
 							checked={ bottomBar }
-							onChange={ ( bottomBar ) => {
-								setAttributes( { bottomBar } );
-							} }
+							onChange={ ( bottomBar ) =>
+								setAttributes( { bottomBar } )
+							}
 						/>
 					</PanelRow>
-					{ bottomBar && (
-						<PanelRow>
-							<ColorPalette
-								colors={ colors.palette }
-								onChange={ ( iconColor ) => {
-									setAttributes( { iconColor } );
-								} }
-								clearable={ false }
-								value={ iconColor }
-							/>
-						</PanelRow>
-					) }
-					{ bottomBar &&
-						icons.map( ( _, index: number ) => (
-							<PanelRow>
-								<SelectControl
-									label={ `Icon ${ index + 1 }` }
-									value={ icons[ index ] }
-									options={ [
-										{
-											value: null,
-											label: 'Select an Icon',
-										},
-										...iconSetSelectOptions,
-									] }
-									onChange={ ( icon: string ) =>
-										setIcon( icon, index )
-									}
-								/>
-							</PanelRow>
-						) ) }
 				</PanelBody>
 			</InspectorControls>
 			<section { ...blockProps }>
@@ -330,7 +302,6 @@ export default function EditComponent( { attributes, setAttributes } ) {
 													{
 														text: 'get started',
 														href: '/get-started',
-														variant: 'link',
 													},
 												],
 											],
@@ -341,24 +312,21 @@ export default function EditComponent( { attributes, setAttributes } ) {
 						</div>
 					</div>
 				</div>
-				{ bottomBar && (
-					<aside className="top-talent-groups z-3">
-						<div className="container">
-							<div className="row justify-content-center">
-								{ icons.map( ( icon ) => {
-									return (
-										<div className="icon d-flex flex-column text-white align-items-center text-center col-12 col-lg-3 my-5 my-lg-0">
-											{ K1Icon( icon.value, iconColor ) }
-											<span className="mt-5 fs-5 icon__label">
-												{ icon.label }
-											</span>
-										</div>
-									);
-								} ) }
-							</div>
+				<aside className="top-talent-groups z-3">
+					<div className="container">
+						<div className="row justify-content-center">
+							{ icons.map( ( icon ) => {
+								return (
+									<div className="icon d-flex flex-column text-white align-items-center text-center col-12 col-lg-3 my-5 my-lg-0">
+										<span className="mt-5 fs-5 icon__label">
+											{ icon.title }
+										</span>
+									</div>
+								);
+							} ) }
 						</div>
-					</aside>
-				) }
+					</div>
+				</aside>
 			</section>
 		</>
 	);

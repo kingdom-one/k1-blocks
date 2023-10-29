@@ -1,35 +1,37 @@
 @use "../../styles/abstracts/mixins" as m;
 
-.hero {
-	height: unset;
-	padding-top: 30rem;
-	padding-bottom: 4rem;
-
-	@include m.media-breakpoint-up(lg) {
-		min-height: 80rem;
-		padding-top: 15.6rem;
+:not(.editor-styles-wrapper) {
+	.hero {
+		height: unset;
+		padding-top: 30rem;
 		padding-bottom: 4rem;
-	}
 
-	&__background {
-		@include m.background-layers($opacity: 0.75);
-
-		&--lower {
-			background-position: center;
-			background-size: cover;
-			background-repeat: no-repeat;
+		@include m.media-breakpoint-up(lg) {
+			min-height: 80rem;
+			padding-top: 15.6rem;
+			padding-bottom: 10rem;
 		}
 
-		&--upper {
-			background-color: rgba(black, 0.65);
-		}
+		&__background {
+			@include m.background-layers($opacity: 0.75);
 
-		&.color-right {
-			@include m.clip-path("right-bottom");
-		}
+			&--lower {
+				background-position: center;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
 
-		&.color-left {
-			@include m.clip-path("left-bottom");
+			&--upper {
+				background-color: rgba(black, 0.65);
+			}
+
+			&.color-right {
+				@include m.clip-path("right-bottom");
+			}
+
+			&.color-left {
+				@include m.clip-path("left-bottom");
+			}
 		}
 	}
 }

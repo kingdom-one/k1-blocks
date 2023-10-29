@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from '@wordpress/element';
 import {
-	RichText,
 	useBlockProps,
 	InspectorControls,
 	MediaUpload,

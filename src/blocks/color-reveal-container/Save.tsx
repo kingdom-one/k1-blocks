@@ -1,6 +1,13 @@
 import React from '@wordpress/element';
-import { InnerBlocks } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 export default function SaveComponent() {
-	return <InnerBlocks.Content />;
+	const blockProps = useBlockProps.save( {
+		className: 'color-container my-5 py-5',
+	} );
+	return (
+		<div { ...blockProps }>
+			<InnerBlocks.Content />
+		</div>
+	);
 }

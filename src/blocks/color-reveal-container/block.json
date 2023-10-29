@@ -9,11 +9,7 @@
 	"supports": {
 		"align": [
 			"full"
-		],
-		"color": {
-			"text": false,
-			"background": true
-		}
+		]
 	},
 	"attributes": {
 		"align": {
@@ -22,7 +18,7 @@
 		},
 		"backgroundColor": {
 			"type": "string",
-			"default": "primary-dark"
+			"default": "#00644b"
 		},
 		"hasBackgroundImage": {
 			"type": "boolean",
