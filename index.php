@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Kingdom One Blocks
  * Description:       Handle the basics with this plugin.
- * Version:           1.0
+ * Version:           1.1
  * Requires at least: 6.3
  * Requires PHP:      8.2
  * Author:            KJ Roelke

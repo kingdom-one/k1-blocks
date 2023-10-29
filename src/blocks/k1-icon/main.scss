@@ -1,0 +1,35 @@
+@use "../../styles/abstracts/mixins" as m;
+
+.hero {
+	height: unset;
+	padding-top: 30rem;
+	padding-bottom: 4rem;
+
+	@include m.media-breakpoint-up(lg) {
+		min-height: 80rem;
+		padding-top: 15.6rem;
+		padding-bottom: 4rem;
+	}
+
+	&__background {
+		@include m.background-layers($opacity: 0.75);
+
+		&--lower {
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+		&--upper {
+			background-color: rgba(black, 0.65);
+		}
+
+		&.color-right {
+			@include m.clip-path("right-bottom");
+		}
+
+		&.color-left {
+			@include m.clip-path("left-bottom");
+		}
+	}
+}

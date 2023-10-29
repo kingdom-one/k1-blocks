@@ -1,7 +1,7 @@
-@use '../abstracts/mixins' as m;
-@use '../abstracts/variables' as v;
-@use '../components/content-sections/core-services';
-@use '../components/equipment';
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+@use "../components/content-sections/core-services";
+@use "../components/equipment";
 
 @mixin full-size {
 	height: 100%;
@@ -24,75 +24,6 @@
 			font-size: 2em;
 			text-align: center;
 			font-weight: 700;
-		}
-	}
-}
-
-.stakes {
-	&__background {
-		@include m.background-layers;
-
-		&--color {
-			background-color: var(--color-primary--dark);
-		}
-
-		&--upper {
-			background-color: rgba(black, 0.35);
-		}
-	}
-
-	&__content {
-		position: relative;
-		z-index: 4;
-
-		@include m.media-breakpoint-up(lg) {
-			--frame-left: 47rem;
-			--frame-top: 3rem;
-			--frame-bottom: 49rem;
-			--frame-right: 92rem;
-
-			--window: polygon(
-				0% 0%,
-				0% 100%,
-				var(--frame-left) 100%,
-				var(--frame-left) var(--frame-top),
-				var(--frame-right) var(--frame-top),
-				var(--frame-right) var(--frame-bottom),
-				var(--frame-left) var(--frame-bottom),
-				var(--frame-left) 100%,
-				100% 100%,
-				100% 0%
-			);
-		}
-		@include m.media-breakpoint-up(xl) {
-			--frame-left: 56rem;
-			--frame-top: 3rem;
-			--frame-bottom: 48rem;
-			--frame-right: 110rem;
-		}
-		@include m.media-breakpoint-up(xxl) {
-			--frame-left: 65rem;
-			--frame-top: 3rem;
-			--frame-bottom: 48rem;
-			--frame-right: 128rem;
-		}
-
-		&--background {
-			background-color: #fef1db;
-			border-radius: 1rem;
-			padding: 3rem;
-			@include m.media-breakpoint-up(lg) {
-				clip-path: var(--window);
-			}
-		}
-	}
-
-	.swiper {
-		height: 45rem;
-		&-stakes-pagination {
-			&-bullet-active {
-				background-color: var(--color-primary);
-			}
 		}
 	}
 }

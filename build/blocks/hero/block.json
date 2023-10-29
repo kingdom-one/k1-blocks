@@ -3,7 +3,7 @@
   "apiVersion": 3,
   "name": "k1-block-theme/hero",
   "title": "Hero Section",
-  "category": "text",
+  "category": "k1-blocks",
   "description": "The hero container",
   "textdomain": "kingdom_one",
   "supports": {
@@ -12,17 +12,46 @@
     ],
     "color": {
       "text": false,
-      "background": true
+      "background": false
     }
   },
   "attributes": {
+    "bottomBar": {
+      "type": "boolean",
+      "default": false
+    },
+    "icons": {
+      "type": "array",
+      "default": [
+        {
+          "value": "hr",
+          "label": "HR"
+        },
+        {
+          "value": "finance",
+          "label": "Finance"
+        },
+        {
+          "value": "marcom",
+          "label": "Marketing & Communications"
+        },
+        {
+          "value": "staffing",
+          "label": "Business Administration"
+        }
+      ]
+    },
+    "iconColor": {
+      "type": "string",
+      "default": "white"
+    },
     "align": {
       "type": "string",
       "default": "full"
     },
     "backgroundColor": {
       "type": "string",
-      "default": "primary-dark"
+      "default": "#00644b"
     },
     "hasBackgroundImage": {
       "type": "boolean",
@@ -63,5 +92,6 @@
     }
   },
   "editorScript": "file:./index.js",
-  "style": "file:./index.css"
+  "style": "file:./index.css",
+  "render": "file:./render.php"
 }

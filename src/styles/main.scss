@@ -1,12 +1,12 @@
 // Base Theme Styles
-@use './base/reset';
-@use './base/base';
-@use './base/typography';
-@use './base/utilities';
+@use "./base/reset";
+@use "./base/base";
+@use "./base/typography";
+@use "./base/utilities";
 
 // Components
-@use './components/header';
-@use './components/footer';
-@use './components/buttons';
-@use './components/global-svgs';
-@use './components/content-sections';
+@use "./components/header";
+@use "./components/footer";
+@use "./components/buttons";
+@use "./components/global-svgs";
+@use "./components/content-sections";

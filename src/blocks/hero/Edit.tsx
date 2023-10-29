@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
-import { leaves2, leaves3, leaves4 } from '../../assets/leaf-svgs';
 import {
 	RichText,
 	useBlockProps,
@@ -16,23 +15,17 @@ import {
 	Button,
 	ButtonGroup,
 	ColorPalette,
+	ToggleControl,
 } from '@wordpress/components';
+
+import { iconSetSelectOptions } from '../../assets/icon-set/iconSetSelectOptions';
 import colors from '../../assets/colors.json';
+import Leaves from '../../assets/leaves/leaves';
+import K1Icon from '../../assets/icon-set/k1Icons';
 
 function getThePostId(): string | null {
 	const url = new URL( window.location.href );
 	return url.searchParams.get( 'post' );
-}
-
-export function getTheLeaves( leaves: string ) {
-	switch ( leaves ) {
-		case '2':
-			return leaves2;
-		case '3':
-			return leaves3;
-		case '4':
-			return leaves4;
-	}
 }
 
 export default function EditComponent( { attributes, setAttributes } ) {
@@ -47,12 +40,17 @@ export default function EditComponent( { attributes, setAttributes } ) {
 		headlineColor,
 		subheadlineColor,
 		pageTitle,
+		bottomBar,
+		icons,
+		iconColor,
 	} = attributes;
 
 	const blockProps = useBlockProps( {
-		className: 'hero d-flex flex-column justify-content-center',
+		className: 'hero',
 	} );
+
 	const [ imgID, setImgID ] = useState< number | undefined >( undefined );
+
 	useEffect( () => {
 		async function getImg() {
 			if ( ! imgID ) return;
@@ -88,6 +86,17 @@ export default function EditComponent( { attributes, setAttributes } ) {
 			hasBackgroundImage: false,
 		} );
 		setImgID( undefined );
+	}
+
+	function setIcon( icon: string, index: number ) {
+		const newIcons = [ ...icons ];
+		const newIcon = iconSetSelectOptions.find(
+			( iconSet ) => iconSet.value === icon
+		);
+		if ( newIcon ) {
+			newIcons[ index ] = newIcon;
+			setAttributes( { icons: newIcons } );
+		}
 	}
 
 	return (
@@ -127,9 +136,14 @@ export default function EditComponent( { attributes, setAttributes } ) {
 						</MediaUploadCheck>
 					</PanelRow>
 					<PanelRow>
-						<p style={ { marginTop: 20 } }>
-							Set the Background Color with the Styles Pane.
-						</p>
+						<ColorPalette
+							colors={ colors.palette }
+							onChange={ ( val ) => {
+								setAttributes( { backgroundColor: val } );
+							} }
+							clearable={ false }
+							value={ backgroundColor }
+						/>
 					</PanelRow>
 					<PanelRow>
 						<SelectControl
@@ -200,13 +214,57 @@ export default function EditComponent( { attributes, setAttributes } ) {
 						/>
 					</PanelRow>
 				</PanelBody>
+				<PanelBody title="Bottom Icon Bar" initialOpen={ false }>
+					<PanelRow>
+						<ToggleControl
+							label="Display Bottom Icon Bar"
+							checked={ bottomBar }
+							onChange={ ( bottomBar ) => {
+								setAttributes( { bottomBar } );
+							} }
+						/>
+					</PanelRow>
+					{ bottomBar && (
+						<PanelRow>
+							<ColorPalette
+								colors={ colors.palette }
+								onChange={ ( iconColor ) => {
+									setAttributes( { iconColor } );
+								} }
+								clearable={ false }
+								value={ iconColor }
+							/>
+						</PanelRow>
+					) }
+					{ bottomBar &&
+						icons.map( ( option, index: number ) => {
+							return (
+								<PanelRow key={ option.value }>
+									<SelectControl
+										label={ `Icon ${ index + 1 }` }
+										value={ option.value ?? null }
+										options={ [
+											{
+												value: null,
+												label: 'Select an Icon',
+											},
+											...iconSetSelectOptions,
+										] }
+										onChange={ ( icon: string ) =>
+											setIcon( icon, index )
+										}
+									/>
+								</PanelRow>
+							);
+						} ) }
+				</PanelBody>
 			</InspectorControls>
 			<section { ...blockProps }>
 				<div className={ `hero__background color-${ colorDirection }` }>
 					<div
 						className="hero__background--color"
 						style={ {
-							backgroundColor: `var(--wp--preset--color-${ backgroundColor })`,
+							backgroundColor: `${ backgroundColor }`,
 						} }
 					/>
 					{ hasBackgroundImage && (
@@ -225,7 +283,7 @@ export default function EditComponent( { attributes, setAttributes } ) {
 					<div className="container d-flex flex-column align-items-stretch">
 						<div className="row">
 							<div className="col-1 align-self-start h-auto position-relative d-none d-md-block">
-								{ getTheLeaves( leaves ) }
+								<Leaves leaves={ leaves } />
 							</div>
 							<div className="position-relative d-flex flex-column col-11">
 								<RichText
@@ -278,6 +336,7 @@ export default function EditComponent( { attributes, setAttributes } ) {
 													{
 														text: 'get started',
 														href: '/get-started',
+														variant: 'link',
 													},
 												],
 											],
@@ -288,6 +347,27 @@ export default function EditComponent( { attributes, setAttributes } ) {
 						</div>
 					</div>
 				</div>
+				{ bottomBar && (
+					<aside className="top-talent-groups z-3">
+						<div className="container">
+							<div className="row justify-content-center">
+								{ icons.map( ( icon ) => {
+									return (
+										<div
+											className="icon d-flex flex-column align-items-center text-center col-12 col-lg-3 my-5 my-lg-0"
+											style={ { color: iconColor } }
+										>
+											{ K1Icon( icon.value, iconColor ) }
+											<span className="mt-5 fs-5 icon__label">
+												{ icon.label }
+											</span>
+										</div>
+									);
+								} ) }
+							</div>
+						</div>
+					</aside>
+				) }
 			</section>
 		</>
 	);

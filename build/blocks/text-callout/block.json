@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+  "apiVersion": 3,
+  "name": "k1-block-theme/text-callout",
+  "title": "Text Callout",
+  "category": "k1-blocks",
+  "description": "Block that allows for big text callouts",
+  "textdomain": "kingdom_one",
+  "supports": {
+    "color": {
+      "text": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  },
+  "attributes": {
+    "headline": {
+      "type": "string"
+    }
+  },
+  "editorScript": "file:./index.js",
+  "style": "file:./index.css",
+  "render": "file:./render.php"
+}

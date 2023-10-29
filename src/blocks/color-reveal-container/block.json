@@ -1,0 +1,52 @@
+{
+	"$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+	"apiVersion": 3,
+	"name": "k1-block-theme/color-reveal-container",
+	"title": "Color Reveal (container)",
+	"category": "k1-blocks",
+	"description": "The section container that allows for colors to be displayed",
+	"textdomain": "kingdom_one",
+	"supports": {
+		"align": [
+			"full"
+		]
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#00644b"
+		},
+		"hasBackgroundImage": {
+			"type": "boolean",
+			"default": false
+		},
+		"backgroundImage": {
+			"type": "string",
+			"default": ""
+		},
+		"colorDirection": {
+			"type": "string",
+			"enum": [
+				"left",
+				"right",
+				"zig-zag-left",
+				"zig-zag-right",
+				"right-bottom",
+				"left-bottom",
+				"left-top",
+				"right-top"
+			],
+			"default": "right-top"
+		},
+		"opacity": {
+			"type": "integer",
+			"default": "35"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./index.css"
+}
