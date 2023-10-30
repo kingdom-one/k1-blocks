@@ -1,0 +1,41 @@
+@use "../../styles/abstracts/mixins" as m;
+@use "../../styles/components/swipers/abstracts";
+@use "../../styles/components/swipers/base";
+
+.brands {
+	&__background {
+		@include m.background-layers;
+		&--color {
+			background-color: var(--color-primary);
+		}
+		&--lower {
+			background-color: var(--color-primary--dark);
+		}
+	}
+	.swiper-pagination-bullet-active {
+		background-color: white;
+	}
+	#brands-swiper {
+		max-height: unset;
+		.swiper-wrapper {
+			align-items: stretch;
+		}
+
+		.swiper-slide {
+			border: 1px solid white;
+
+			&__logo {
+				max-height: 10rem;
+			}
+		}
+		%swiper_nav {
+			color: white;
+		}
+		.swiper-brands-button-next {
+			@extend %swiper_nav;
+		}
+		.swiper-brands-button-prev {
+			@extend %swiper_nav;
+		}
+	}
+}

@@ -1,8 +1,10 @@
+import { newSlider } from '../../assets/swipers/swiper';
+
 /** Call function to init slider  */
 export const brandsSlider = () => {
 	const el = document.getElementById( 'brands-swiper' );
 	if ( el ) {
-		return newSlider( el, {
+		newSlider( el, {
 			pagination: {
 				el: '.swiper-brands-pagination',
 			},

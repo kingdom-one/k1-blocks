@@ -1,38 +1,62 @@
-@use "./mixins" as m;
+@use "../../styles/abstracts/mixins" as m;
 
 .color-container {
-	&__background {
-		@include m.background-layers;
+	.editor-styles-wrapper & {
+		padding: 0.5rem;
 	}
-}
 
-.clip-color-left-bottom {
-	@include m.clip-path("left-bottom");
-}
+	&__background {
+		@include m.absolute_100;
 
-.clip-color-left {
-	@include m.clip-path("left");
-}
+		& > :nth-child(1) {
+			@include m.absolute_100;
+			z-index: 1;
+		}
 
-.clip-color-right-bottom {
-	@include m.clip-path("right-bottom");
-}
+		& > :nth-child(2) {
+			@include m.absolute_100;
+			z-index: 2;
+		}
 
-.clip-color-right {
-	@include m.clip-path("right");
-}
-.clip-color-right-top {
-	@include m.clip-path("right-top");
-}
+		& > :nth-child(3) {
+			@include m.absolute_100;
+			z-index: 3;
+		}
 
-.clip-color-left-top {
-	@include m.clip-path("left-top");
-}
+		&.clip-color-left-bottom {
+			@include m.clip-path("left-bottom");
+		}
 
-.clip-color-zig-zag-left {
-	@include m.clip-path("zig-zag-left");
-}
+		&.clip-color-left {
+			@include m.clip-path("left");
+		}
 
-.clip-color-zig-zag-right {
-	@include m.clip-path("zig-zag-right");
+		&.clip-color-right-bottom {
+			@include m.clip-path("right-bottom");
+		}
+
+		&.clip-color-right {
+			@include m.clip-path("right");
+		}
+		&.clip-color-right-top {
+			@include m.clip-path("right-top");
+		}
+
+		&.clip-color-left-top {
+			@include m.clip-path("left-top");
+		}
+
+		&.clip-color-zig-zag-left {
+			@include m.clip-path("zig-zag-left");
+		}
+
+		&.clip-color-zig-zag-right {
+			@include m.clip-path("zig-zag-right");
+		}
+	}
+
+	&__content {
+		position: relative;
+		z-index: 5;
+	}
 }

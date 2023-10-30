@@ -1,3 +1,7 @@
+@use "swiper/scss";
+@use "swiper/scss/navigation";
+@use "swiper/scss/pagination";
+
 .swiper {
 	max-height: 60rem;
 	width: 100%;

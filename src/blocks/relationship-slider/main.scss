@@ -1,4 +1,7 @@
 @use "../../styles/abstracts/mixins" as m;
+@use "swiper/scss";
+@use "swiper/scss/navigation";
+@use "swiper/scss/pagination";
 %positioning {
 	position: absolute;
 	inset: 0;

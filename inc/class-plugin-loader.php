@@ -13,14 +13,13 @@ class Plugin_Loader {
 		add_action( 'init', array( $this, 'register_blocks' ) );
 		add_filter( 'block_categories_all', array( $this, 'k1_block_category' ) );
 	}
-	
+
 	/** Loads Utilities */
 	private function load_helpers() {
-		$files = ['icon-set','leaf-icons'];
-		foreach($files as $file) {
-			require_once trailingslashit(__DIR__) . 'k1-' . $file . '.php';
+		$files = array( 'icon-set', 'leaf-icons' );
+		foreach ( $files as $file ) {
+			require_once trailingslashit( __DIR__ ) . 'k1-' . $file . '.php';
 		}
-
 	}
 
 	/** Register the blocks */
@@ -32,6 +31,7 @@ class Plugin_Loader {
 			'icon-grid',
 			'testimonials-slider',
 			'text-callout',
+			'brands-slider',
 		);
 
 		foreach ( $blocks as $block ) {
@@ -40,7 +40,7 @@ class Plugin_Loader {
 			);
 		}
 	}
-	
+
 	/** Creates new "K1 Blocks" block category and sets its position to be 3rd in the list
 	 *
 	 * @param array $categories the array of block categories

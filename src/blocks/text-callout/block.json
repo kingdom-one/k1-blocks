@@ -1,5 +1,5 @@
 {
-	"$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "k1-block-theme/text-callout",
 	"title": "Text Callout",
@@ -13,11 +13,20 @@
 		"typography": {
 			"fontSize": true,
 			"lineHeight": true
-		}
+		},
+		"align": [
+			"left",
+			"center",
+			"right"
+		]
 	},
 	"attributes": {
 		"headline": {
 			"type": "string"
+		},
+		"align": {
+			"type": "string",
+			"default": "center"
 		}
 	},
 	"editorScript": "file:./index.js",

@@ -7,9 +7,7 @@
 	"description": "The section container that allows for colors to be displayed",
 	"textdomain": "kingdom_one",
 	"supports": {
-		"align": [
-			"full"
-		]
+		"align": true
 	},
 	"attributes": {
 		"align": {
@@ -48,5 +46,6 @@
 		}
 	},
 	"editorScript": "file:./index.js",
-	"style": "file:./index.css"
+	"style": "file:./index.css",
+	"render": "file:./render.php"
 }

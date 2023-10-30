@@ -14,7 +14,10 @@ import {
 	Button,
 	ButtonGroup,
 	RangeControl,
+	ColorPalette,
 } from '@wordpress/components';
+
+import colors from '../../assets/colors.json';
 
 export default function EditComponent( { attributes, setAttributes } ) {
 	const {
@@ -26,9 +29,10 @@ export default function EditComponent( { attributes, setAttributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps( {
-		className: 'color-container my-5 py-5',
+		className: 'color-container my-5 py-5 position-relative',
 	} );
 	const [ imgID, setImgID ] = useState< number | undefined >( undefined );
+
 	useEffect( () => {
 		async function getImg() {
 			if ( ! imgID ) return;
@@ -57,43 +61,16 @@ export default function EditComponent( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Background" initialOpen={ true }>
+				<PanelBody title="Background Color" initialOpen={ true }>
 					<PanelRow>
-						<MediaUploadCheck>
-							<MediaUpload
-								allowedTypes={ [ 'image' ] }
-								onSelect={ ( img ) => {
-									setAttributes( {
-										hasBackgroundImage: true,
-									} );
-									setImgID( img.id );
-								} }
-								value={ backgroundImage }
-								render={ ( { open } ) => (
-									<ButtonGroup>
-										<Button
-											variant="primary"
-											onClick={ open }
-										>
-											Choose Background Image
-										</Button>
-										{ hasBackgroundImage && (
-											<Button
-												variant="secondary"
-												onClick={ clearBackgroundImage }
-											>
-												Clear Background Image
-											</Button>
-										) }
-									</ButtonGroup>
-								) }
-							/>
-						</MediaUploadCheck>
-					</PanelRow>
-					<PanelRow>
-						<p style={ { marginTop: 20 } }>
-							Set the Background Color with the Styles Pane.
-						</p>
+						<ColorPalette
+							colors={ colors.palette }
+							onChange={ ( val ) => {
+								setAttributes( { backgroundColor: val } );
+							} }
+							clearable={ false }
+							value={ backgroundColor }
+						/>
 					</PanelRow>
 					<PanelRow>
 						<SelectControl
@@ -138,40 +115,94 @@ export default function EditComponent( { attributes, setAttributes } ) {
 							}
 						/>
 					</PanelRow>
+				</PanelBody>
+				<PanelBody title="Background Image" initialOpen={ true }>
 					<PanelRow>
-						Overlay Color
-						<RangeControl
-							label={ 'Opacity' }
-							value={ opacity }
-							onChange={ ( opacity ) =>
-								setAttributes( { opacity } )
-							}
-							min={ 0 }
-							max={ 100 }
-						/>
+						<MediaUploadCheck>
+							<MediaUpload
+								allowedTypes={ [ 'image' ] }
+								onSelect={ ( img ) => {
+									setAttributes( {
+										hasBackgroundImage: true,
+									} );
+									setImgID( img.id );
+								} }
+								value={ backgroundImage }
+								render={ ( { open } ) => (
+									<ButtonGroup>
+										<Button
+											variant="primary"
+											onClick={ open }
+										>
+											Choose Background Image
+										</Button>
+										{ hasBackgroundImage && (
+											<Button
+												variant="secondary"
+												onClick={ clearBackgroundImage }
+											>
+												Clear Background Image
+											</Button>
+										) }
+									</ButtonGroup>
+								) }
+							/>
+						</MediaUploadCheck>
 					</PanelRow>
+					{ hasBackgroundImage && (
+						<PanelRow>
+							<div style={ { width: '100%' } }>
+								<RangeControl
+									label={ 'Opacity' }
+									value={ opacity }
+									onChange={ ( opacity ) =>
+										setAttributes( { opacity } )
+									}
+									min={ 0 }
+									max={ 100 }
+								/>
+							</div>
+						</PanelRow>
+					) }
 				</PanelBody>
 			</InspectorControls>
 			<section { ...blockProps }>
 				<div
 					className={ `color-container__background clip-color-${ colorDirection }` }
 				>
-					<div className="color-container__background--color" />
+					<div
+						className="color-container__background--color"
+						style={ { backgroundColor: backgroundColor } }
+					/>
 					{ hasBackgroundImage ? (
 						<>
 							<div
 								className="color-container__background--lower"
 								style={ {
 									backgroundImage: `url(${ backgroundImage })`,
+									backgroundPosition: 'center',
+									backgroundSize: 'cover',
 								} }
 							/>
-							<div className="color-container__background--upper" />
+							<div
+								className="color-container__background--upper"
+								style={ {
+									backgroundColor: `rgba(0,0,0,${
+										opacity / 100
+									})`,
+								} }
+							/>
 						</>
 					) : (
 						<div className="color-container__background--lower" />
 					) }
 				</div>
-				<InnerBlocks />
+				<div
+					className="color-container__content position-relative"
+					style={ { zIndex: 5 } }
+				>
+					<InnerBlocks />
+				</div>
 			</section>
 		</>
 	);
