@@ -23,6 +23,14 @@ if ( ! $query->have_posts() ) {
 		<div class="brands__background--upper"></div>
 	</div>
 	<div class="container-fluid position-relative z-2 py-5">
+		<div class="container">
+			<row class="my-5 justify-content-center text-white">
+				<div class="col-lg-10 text-lg-center">
+					<h2 class="text-white">Trusted By</h2>
+					<p>We have had the privlege of partnering with so many amazing ministries. Below is some of the recent work that we have had the opportunity to be a part of.</p>
+				</div>
+			</row>
+		</div>
 		<div class="row mt-5">
 			<div class="swiper" id="brands-swiper">
 				<div class="swiper-wrapper">
