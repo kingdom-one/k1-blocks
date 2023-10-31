@@ -2,11 +2,11 @@ import { newSlider } from '../../assets/swipers/swiper';
 
 /** Call function to init slider  */
 function testimonialsSlider() {
-	const slider = document.getElementById( 'testimonials-swiper' );
-	if ( ! slider ) {
+	const sliderEl = document.getElementById( 'testimonials-swiper' );
+	if ( ! sliderEl ) {
 		throw new Error( "couldn't find swiper!" );
 	}
-	newSlider( slider, {
+	newSlider( sliderEl, {
 		pagination: {
 			el: '.swiper-testimonials-pagination',
 		},

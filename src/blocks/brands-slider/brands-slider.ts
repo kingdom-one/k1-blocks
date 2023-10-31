@@ -1,7 +1,7 @@
 import { newSlider } from '../../assets/swipers/swiper';
 
 /** Call function to init slider  */
-export const brandsSlider = () => {
+const brandsSlider = () => {
 	const el = document.getElementById( 'brands-swiper' );
 	if ( el ) {
 		newSlider( el, {
@@ -16,4 +16,4 @@ export const brandsSlider = () => {
 	}
 };
 
-brandsSlider();
+document.addEventListener( 'DOMContentLoaded', brandsSlider );

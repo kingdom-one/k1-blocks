@@ -8,6 +8,8 @@
   "textdomain": "kingdom_one",
   "editorScript": "file:./index.js",
   "viewScript": "file:./testimonials-slider.js",
-  "style": "file:./index.css",
+  "style": [
+    "file:./index.css"
+  ],
   "render": "file:./render.php"
 }
