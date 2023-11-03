@@ -31,8 +31,9 @@
 			"default": "white"
 		}
 	},
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
 	"editorScript": "file:./index.js",
 	"viewScript": "file:./slider.ts",
-	"style": "file:./index.css",
 	"render": "file:./render.php"
 }

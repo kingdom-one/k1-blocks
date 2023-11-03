@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 import {
-	RichText,
 	useBlockProps,
 	InspectorControls,
 	MediaUpload,
@@ -11,10 +10,13 @@ import {
 	PanelBody,
 	PanelRow,
 	Button,
+	TextControl,
+	TextareaControl,
 	ButtonGroup,
 	ColorPalette,
 } from '@wordpress/components';
 import colors from '../../assets/colors.json';
+import './editor.scss';
 
 export default function EditComponent( { attributes, setAttributes } ) {
 	const {
@@ -140,33 +142,25 @@ export default function EditComponent( { attributes, setAttributes } ) {
 					) }
 				</div>
 				<div className="stakes__content">
-					<span>Slider Section Headline:</span>
-					<RichText
-						placeholder="The Slider Section headline"
+					<TextControl
+						label="The Slider Section headline"
 						value={ headline }
 						onChange={ ( headline ) =>
 							setAttributes( { headline } )
 						}
 						className="headline"
-						tagName="h2"
-						allowedFormats={ [ 'custom/headline-color' ] }
-						style={ {
-							color: headlineColor,
-						} }
+						type="text"
+						required={ true }
 					/>
-					<span>Slider Section Subheadline:</span>
-					<RichText
-						placeholder="write something nice..."
+					<TextareaControl
+						label="Slider subheadline"
 						value={ subheadline }
 						onChange={ ( subheadline ) =>
 							setAttributes( { subheadline } )
 						}
 						className="subheadline"
-						tagName="p"
-						allowedFormats={ [ 'core/paragraph' ] }
 						style={ {
-							color: subheadlineColor,
-							fontSize: 18,
+							fontSize: '1rem',
 						} }
 					/>
 				</div>

@@ -21,8 +21,10 @@
 					<h2 class="headline" style="<?php echo "color:{$attributes['headlineColor']}"; ?>">
 						<?php echo $attributes['headline']; ?>
 					</h2>
+					<?php if ( ! empty( $attributes['subheadline'] ) ) : ?>
 					<div class="subheadline mt-3 mb-5" style="<?php echo "color:{$attributes['subheadlineColor']}"; ?>"><?php echo $attributes['subheadline']; ?>
 					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 			<div class="stakes__content--background row mb-5">

@@ -3,6 +3,9 @@ import { newSlider } from '../../assets/swipers/swiper';
 /** Call function to init slider  */
 const brandsSlider = () => {
 	const el = document.getElementById( 'brands-swiper' );
+	if ( ! el ) {
+		throw new Error( `Brands Slider not found.` );
+	}
 	if ( el ) {
 		newSlider( el, {
 			pagination: {
@@ -16,4 +19,8 @@ const brandsSlider = () => {
 	}
 };
 
-document.addEventListener( 'DOMContentLoaded', brandsSlider );
+try {
+	brandsSlider();
+} catch ( err ) {
+	console.warn( err );
+}

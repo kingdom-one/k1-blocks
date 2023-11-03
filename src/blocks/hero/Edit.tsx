@@ -22,6 +22,7 @@ import { iconSetSelectOptions } from '../../assets/icon-set/iconSetSelectOptions
 import colors from '../../assets/colors.json';
 import Leaves from '../../assets/leaves/leaves';
 import K1Icon from '../../assets/icon-set/k1Icons';
+import './editor.scss';
 
 function getThePostId(): string | null {
 	const url = new URL( window.location.href );
@@ -282,10 +283,10 @@ export default function EditComponent( { attributes, setAttributes } ) {
 				<div className="hero__content position-relative z-3">
 					<div className="container d-flex flex-column align-items-stretch">
 						<div className="row">
-							<div className="col-1 align-self-start h-auto position-relative d-none d-md-block">
+							<div className="col-2 align-self-start h-auto position-relative d-none d-md-block">
 								<Leaves leaves={ leaves } />
 							</div>
-							<div className="position-relative d-flex flex-column col-11">
+							<div className="position-relative d-flex flex-column col-10">
 								<RichText
 									placeholder="the hero headline..."
 									value={ headline ?? pageTitle }
@@ -322,8 +323,8 @@ export default function EditComponent( { attributes, setAttributes } ) {
 					</div>
 					<div className="container my-5">
 						<div className="row position-relative z-3">
-							<div className="col-1"></div>
-							<div className="col-lg-11">
+							<div className="col-2"></div>
+							<div className="col-md-10">
 								<InnerBlocks
 									allowedBlocks={ [ 'core/buttons' ] }
 									template={ [
@@ -350,11 +351,11 @@ export default function EditComponent( { attributes, setAttributes } ) {
 				{ bottomBar && (
 					<aside className="top-talent-groups z-3">
 						<div className="container">
-							<div className="row justify-content-center">
+							<div className="top-talent-groups__grid">
 								{ icons.map( ( icon ) => {
 									return (
 										<div
-											className="icon d-flex flex-column align-items-center text-center col-12 col-lg-3 my-5 my-lg-0"
+											className="top-talent-groups__icon"
 											style={ { color: iconColor } }
 										>
 											{ K1Icon( icon.value, iconColor ) }

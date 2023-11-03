@@ -2,10 +2,12 @@
 @use "swiper/scss";
 @use "swiper/scss/navigation";
 @use "swiper/scss/pagination";
+
 %positioning {
 	position: absolute;
 	inset: 0;
 }
+
 .wp-block {
 	.stakes {
 		position: relative;
@@ -31,6 +33,7 @@
 		&__content {
 			z-index: 5;
 			position: relative;
+			color: white;
 		}
 	}
 }

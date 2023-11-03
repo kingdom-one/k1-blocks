@@ -30,7 +30,7 @@ export default function Leaves( {
 	}
 	return (
 		<div
-			className="k1-leaves__container"
+			className="k1-leaves"
 			id={ `leaves-${ leaves }` }
 			style={ styling }
 		>

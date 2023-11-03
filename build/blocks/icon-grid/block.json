@@ -7,6 +7,6 @@
   "description": "Block that contains the Icon Grid",
   "textdomain": "kingdom_one",
   "editorScript": "file:./index.js",
-  "style": "file:./index.css",
+  "style": "file:./style-index.css",
   "render": "file:./render.php"
 }

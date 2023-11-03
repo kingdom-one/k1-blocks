@@ -16,5 +16,8 @@ function testimonialsSlider() {
 		},
 	} );
 }
-
-testimonialsSlider();
+try {
+	testimonialsSlider();
+} catch ( err ) {
+	console.warn( err );
+}

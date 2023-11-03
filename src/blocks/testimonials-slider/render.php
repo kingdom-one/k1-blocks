@@ -4,6 +4,7 @@
  * Powered By Testimonials CPT
  *
  * @package KingdomOne
+ * @subpackage K1_Blocks
  */
 
 $swiper_slides = new WP_Query(
@@ -22,7 +23,7 @@ if ( ! $swiper_slides->have_posts() ) {
 			<div class="swiper" id="testimonials-swiper">
 				<div class="swiper-wrapper">
 					<?php while ( $swiper_slides->have_posts() ) : ?>
-						<?php $swiper_slides->the_post(); ?>
+					<?php $swiper_slides->the_post(); ?>
 					<div class="swiper-slide">
 						<?php the_post_thumbnail(); ?>
 						<p class="quote">"<?php the_field( 'quote' ); ?>"</p>
@@ -44,3 +45,4 @@ if ( ! $swiper_slides->have_posts() ) {
 		</div>
 	</div>
 </aside>
+<?php wp_reset_postdata(); ?>

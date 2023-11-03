@@ -1,7 +1,7 @@
 export const leaves2 = (
-	<svg width="190.716" height="217.758" viewBox="0 0 190.716 217.758">
+	<svg viewBox="0 0 190.716 217.758">
 		<defs>
-			<clipPath id="a">
+			<clipPath id="leaves-2a">
 				<rect
 					width="147.637"
 					height="185.88"
@@ -12,7 +12,7 @@ export const leaves2 = (
 			</clipPath>
 		</defs>
 		<g transform="matrix(-0.966, 0.259, -0.259, -0.966, 190.716, 179.547)">
-			<g clip-path="url(#a)">
+			<g clip-path="url(#leaves-2a)">
 				<path
 					d="M328.262,338.491c11.175,24.413-4.392,54.661-4.392,54.661s-35.992-6.646-47.167-31.059c-8.1-17.7-1.54-39.174,2.681-49.644h0l2.865-6.36S317.087,314.078,328.262,338.491Z"
 					transform="translate(-263.177 -213.148)"
@@ -37,9 +37,9 @@ export const leaves2 = (
 );
 
 export const leaves3 = (
-	<svg width="190.716" height="217.758" viewBox="0 0 190.716 217.758">
+	<svg viewBox="0 0 190.716 217.758">
 		<defs>
-			<clipPath id="a">
+			<clipPath id="leaves-3a">
 				<rect
 					width="147.637"
 					height="185.88"
@@ -51,7 +51,7 @@ export const leaves3 = (
 		</defs>
 		<g transform="translate(0 0)">
 			<g transform="matrix(-0.966, 0.259, -0.259, -0.966, 190.716, 179.547)">
-				<g clip-path="url(#a)">
+				<g clip-path="url(#leaves-3a)">
 					<path
 						d="M328.262,338.491c11.175,24.413-4.392,54.661-4.392,54.661s-35.992-6.646-47.167-31.059c-8.1-17.7-1.54-39.174,2.681-49.644h0l2.865-6.36S317.087,314.078,328.262,338.491Z"
 						transform="translate(-263.177 -213.148)"
@@ -86,9 +86,9 @@ export const leaves3 = (
 );
 
 export const leaves4 = (
-	<svg width="147.637" height="185.88" viewBox="0 0 147.637 185.88">
+	<svg viewBox="0 0 147.637 185.88">
 		<defs>
-			<clipPath id="a">
+			<clipPath id="leaves-4a">
 				<rect
 					width="147.637"
 					height="185.88"
@@ -98,7 +98,7 @@ export const leaves4 = (
 				/>
 			</clipPath>
 		</defs>
-		<g clip-path="url(#a)">
+		<g clip-path="url(#leaves-4a)">
 			<path
 				d="M328.262,338.491c11.175,24.413-4.392,54.661-4.392,54.661s-35.992-6.646-47.167-31.059c-8.1-17.7-1.54-39.174,2.681-49.644h0l2.865-6.36S317.087,314.078,328.262,338.491Z"
 				transform="translate(-263.177 -213.148)"

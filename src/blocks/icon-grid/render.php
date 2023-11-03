@@ -79,7 +79,6 @@
 						echo $markup;
 					}
 					?>
-
 			</div>
 		</div>
 	</div>

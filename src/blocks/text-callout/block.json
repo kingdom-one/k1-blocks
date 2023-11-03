@@ -8,7 +8,9 @@
 	"textdomain": "kingdom_one",
 	"supports": {
 		"color": {
-			"text": true
+			"text": true,
+			"heading": true,
+			"background": false
 		},
 		"typography": {
 			"fontSize": true,
@@ -30,6 +32,6 @@
 		}
 	},
 	"editorScript": "file:./index.js",
-	"style": "file:./index.css",
+	"style": "file:./style-index.css",
 	"render": "file:./render.php"
 }

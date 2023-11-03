@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/WordPress/gutenberg/trunk/schemas/json/block.json",
+  "apiVersion": 3,
+  "name": "k1-block-theme/brands-slider",
+  "title": "Brands Slider",
+  "category": "k1-blocks",
+  "description": "Block that contains the 'Trusted By' slider",
+  "textdomain": "kingdom_one",
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./brands-slider.js",
+  "style": "file:./index.css",
+  "render": "file:./render.php"
+}

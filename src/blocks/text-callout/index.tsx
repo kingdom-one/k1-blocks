@@ -1,7 +1,7 @@
 import React from '@wordpress/element';
 import { registerBlockType } from '@wordpress/blocks';
 import block from './block.json';
-import './main.scss';
+import './style.scss';
 import EditComponent from './Edit';
 import { RichText, useBlockProps } from '@wordpress/block-editor';
 
