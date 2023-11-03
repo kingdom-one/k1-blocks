@@ -2,7 +2,7 @@ import React from '@wordpress/element';
 const style = {
 	margin: '2rem auto',
 	padding: '2rem',
-	textAlign: 'center',
+	textAlign: 'center' as const,
 	fontSize: '2rem',
 	backgroundColor: 'white',
 	fontFamily: `var(--font-body)`,
