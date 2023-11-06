@@ -24,7 +24,10 @@ function getIcon( iconName ) {
 	}
 }
 
-export default function K1Icon(
+export default function K1Icon( {
+	icon,
+	color,
+}: {
 	icon:
 		| 'academy'
 		| 'finance'
@@ -34,9 +37,9 @@ export default function K1Icon(
 		| 'spark'
 		| 'staffing'
 		| 'strategy'
-		| 'webDev',
-	color = 'white'
-) {
+		| 'webDev';
+	color: 'white';
+} ) {
 	return (
 		<div
 			className="k1-icon__container"

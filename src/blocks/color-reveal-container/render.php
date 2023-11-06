@@ -15,7 +15,7 @@ $bg_color        = $attributes['backgroundColor'];
 $color_direction = 'clip-color-' . $attributes['colorDirection'];
 ?>
 
-<div class="color-container my-5 py-5 position-relative">
+<div class="color-container py-5 position-relative">
 	<div class="color-container__background <?php echo $color_direction; ?>">
 		<div class="color-container__background--color" style="background-color:<?php echo $bg_color; ?>"></div>
 		<?php if ( $has_bg_image ) : ?>
@@ -25,5 +25,5 @@ $color_direction = 'clip-color-' . $attributes['colorDirection'];
 		<div class="color-container__background--lower"></div>
 		<?php endif; ?>
 	</div>
-	<div class="color-container__content"><?php echo $content; ?></div>
+	<div class="color-container__content container"><?php echo $content; ?></div>
 </div>

@@ -32,6 +32,7 @@ class Plugin_Loader {
 			'testimonials-slider',
 			'text-callout',
 			'brands-slider',
+			'k1-icon',
 		);
 
 		foreach ( $blocks as $block ) {

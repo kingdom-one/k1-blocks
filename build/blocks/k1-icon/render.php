@@ -1,82 +1,28 @@
 <?php
 /**
- * The Hero Section
- * 
+ * A K1 Icon
+ *
  * @package KingdomOne
  */
 
-$color = $attributes['backgroundColor'];
-$has_background_image = $attributes['hasBackgroundImage'];
-$color_direction = $attributes['colorDirection'];
-$background_image = $attributes['backgroundImage'];
-$leaves = $attributes['leaves'];
-$headline = isset($attributes['headline']) ? $attributes['headline'] : $attributes['pageTitle'];
-$headline_color = $attributes['headlineColor'];
-$subheadline = empty($attributes['subheadline']) ? '' : $attributes['subheadline'];
+$background_color  = $attributes['backgroundColor'];
+$icon              = $attributes['icon'];
+$icon_color        = $attributes['iconColor'];
+$headline          = isset( $attributes['headline'] ) ? $attributes['headline'] : '';
+$headline_color    = $attributes['headlineColor'];
+$subheadline       = empty( $attributes['subheadline'] ) ? '' : $attributes['subheadline'];
 $subheadline_color = $attributes['subheadlineColor'];
 ?>
-<section class="hero" id="hero">
-	<div class='<?php echo "hero__background color-{$color_direction}";?>'>
-		<?php
-		if ( $has_background_image ) {
-			echo "<div class='hero__background--color' style='background-color:{$color}'></div><div class='hero__background--lower' style='background-image:url({$background_image})'></div><div class='hero__background--upper'></div>";
-		} else {
-			echo "<div class='hero__background--color' style='background-color:{$color}'></div>";
-		}
-		?>
-	</div>
-	<div class="hero__content position-relative z-3">
-		<div class="container d-flex flex-column align-items-stretch">
-			<div class="row">
-				<div class="col-1 align-self-start h-auto position-relative d-none d-md-block">
-					<?php k1_get_svg_asset( "leaves-{$leaves}" );?>
-				</div>
-				<div class="col-11 position-relative d-flex flex-column">
-					<h1 class="hero__content--eadline mb-5 display-1" style="color:<?php echo $headline_color;?>"><?php echo $headline;?></h1>
-					<span class="hero__content--subheadline subheadline" style="color:<?php echo $subheadline_color;?>"><?php echo $subheadline;?></span>
-				</div>
-			</div>
+<div <?php echo get_block_wrapper_attributes( array( 'class' => 'container' ) ); ?>>
+	<div class="row justify-content-around">
+		<div class="icon__background col-lg-3 d-flex justify-content-center align-items-center p-5"
+			style="background-color: <?php echo $background_color; ?>;border-radius:50%;width:250px;height:250px;">
+			<?php the_k1_icon( $icon, $icon_color ); ?>
 		</div>
-		<div class="container my-5">
-			<div class="row position-relative z-3">
-				<div class="col-1"></div>
-				<div class="col-lg-11">
-					<?php echo $content; ?>
-				</div>
-			</div>
+		<div class="col-lg-8 d-flex flex-column justify-content-center">
+			<h2 class="headline" style="color:<?php echo $headline_color; ?>"><?php echo $headline; ?></h2>
+			<p class="subheadline" style="color:<?php echo $headline_color; ?>"><?php echo $subheadline; ?></p>
+
 		</div>
 	</div>
-	<?php if ($attributes['bottomBar']) : ?>
-	<aside class="top-talent-groups z-3">
-		<div class="container">
-			<div class="row justify-content-center">
-				<?php
-				$icons = array(
-					array(
-						'title' => 'H.R.',
-						'file'  => 'hr',
-					),
-					array(
-						'title' => 'Finance',
-						'file'  => 'finance',
-					),
-					array(
-						'title' => 'Marketing & <br> Communications',
-						'file'  => 'marcom',
-					),
-					array(
-						'title' => 'Business Administration',
-						'file'  => 'staffing',
-					),
-				);
-				foreach ( $icons as $icon ) {
-					$filename = "tg-{$icon['file']}-icon";
-					$svg      = k1_get_svg_asset( $filename, true, false );
-					echo "<div class='icon d-flex flex-column text-white align-items-center text-center col-12 col-lg-3 my-5 my-lg-0'><img class='icon__svg' src='{$svg}' /><span class='mt-5 fs-5 icon__label'>{$icon['title']}</span></div>";
-				}
-				?>
-			</div>
-		</div>
-	</aside>
-	<?php endif;?>
-</section>
+</div>

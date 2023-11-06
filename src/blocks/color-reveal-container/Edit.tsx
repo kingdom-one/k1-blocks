@@ -198,7 +198,7 @@ export default function EditComponent( { attributes, setAttributes } ) {
 					) }
 				</div>
 				<div
-					className="color-container__content position-relative"
+					className="color-container__content position-relative container"
 					style={ { zIndex: 5 } }
 				>
 					<InnerBlocks />

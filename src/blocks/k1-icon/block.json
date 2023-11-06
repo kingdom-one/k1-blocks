@@ -9,47 +9,28 @@
 	"supports": {
 		"align": [
 			"full"
-		],
-		"color": {
-			"text": false,
-			"background": false
-		}
+		]
 	},
 	"attributes": {
-		"bottomBar": {
-			"type": "boolean",
-			"default": false
-		},
 		"align": {
 			"type": "string",
 			"default": "full"
 		},
+		"icon": {
+			"type": "string",
+			"default": "justice"
+		},
+		"iconColor": {
+			"type": "string",
+			"default": "white"
+		},
 		"backgroundColor": {
 			"type": "string",
-			"default": "#00644b"
-		},
-		"hasBackgroundImage": {
-			"type": "boolean",
-			"default": false
-		},
-		"backgroundImage": {
-			"type": "string",
-			"default": ""
-		},
-		"colorDirection": {
-			"type": "string",
-			"enum": [
-				"left",
-				"right"
-			],
-			"default": "right"
-		},
-		"leaves": {
-			"type": "string",
-			"default": "3"
+			"default": "#dbdbdb"
 		},
 		"headline": {
-			"type": "string"
+			"type": "string",
+			"default": "Meet a team member"
 		},
 		"headlineColor": {
 			"type": "string",
@@ -61,12 +42,9 @@
 		"subheadlineColor": {
 			"type": "string",
 			"default": "white"
-		},
-		"pageTitle": {
-			"type": "string"
 		}
 	},
 	"editorScript": "file:./index.js",
-	"style": "file:./index.css",
+	"style": "file:./style-index.css",
 	"render": "file:./render.php"
 }
