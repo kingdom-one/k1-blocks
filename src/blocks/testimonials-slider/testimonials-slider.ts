@@ -16,8 +16,10 @@ function testimonialsSlider() {
 		},
 	} );
 }
-try {
-	testimonialsSlider();
-} catch ( err ) {
-	console.warn( err );
-}
+document.addEventListener( 'DOMContentLoaded', () => {
+	try {
+		testimonialsSlider();
+	} catch ( err ) {
+		console.warn( err );
+	}
+} );
