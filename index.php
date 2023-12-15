@@ -4,6 +4,7 @@
  * Description:       Handle the basics with this plugin.
  * Version:           1.1
  * Requires at least: 6.3
+ * Tested up to:      6.4.2
  * Requires PHP:      8.2
  * Author:            KJ Roelke
  * License:           GPL v2 or later
