@@ -1,14 +1,19 @@
-import React from '@wordpress/element';
+import React, { useRef } from '@wordpress/element';
 import { useEntityRecords } from '@wordpress/core-data';
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import { PanelBody, PanelRow } from '@wordpress/components';
 import Slide from './Slide';
+import { testimonialsSlider } from './testimonials-slider';
 
 export default function EditComponent() {
+	const ref = useRef( null );
 	const { records: posts, isResolving } = useEntityRecords(
 		'postType',
 		'testimonial'
 	);
+	if ( ref.current ) {
+		testimonialsSlider( ref.current );
+	}
 	const blockProps = useBlockProps( {
 		class: 'testimonials text-center py-5',
 	} );
@@ -31,7 +36,11 @@ export default function EditComponent() {
 				</InspectorControls>
 				<aside { ...blockProps }>
 					<div className="row">
-						<div className="swiper" id="testimonials-swiper">
+						<div
+							className="swiper"
+							id="testimonials-swiper"
+							ref={ ref }
+						>
 							<div className="swiper-wrapper">
 								{ posts &&
 									posts.map( ( post ) => (

@@ -1,12 +1,13 @@
 import { newSlider } from '../../assets/swipers/swiper';
 
 /** Call function to init slider  */
-function testimonialsSlider() {
+export function testimonialsSlider( el?: HTMLElement ) {
 	const sliderEl = document.getElementById( 'testimonials-swiper' );
-	if ( ! sliderEl ) {
+	if ( ! el && ! sliderEl ) {
 		throw new Error( "couldn't find swiper!" );
 	}
-	newSlider( sliderEl, {
+
+	newSlider( el ?? sliderEl, {
 		pagination: {
 			el: '.swiper-testimonials-pagination',
 		},
@@ -16,10 +17,3 @@ function testimonialsSlider() {
 		},
 	} );
 }
-document.addEventListener( 'DOMContentLoaded', () => {
-	try {
-		testimonialsSlider();
-	} catch ( err ) {
-		console.warn( err );
-	}
-} );

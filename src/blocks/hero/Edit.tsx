@@ -22,9 +22,8 @@ import { iconSetSelectOptions } from '../../assets/icon-set/iconSetSelectOptions
 import colors from '../../assets/colors.json';
 import Leaves from '../../assets/leaves/leaves';
 import K1Icon from '../../assets/icon-set/k1Icons';
-import './editor.scss';
 
-function getThePostId(): string | null {
+export function getThePostId(): string | null {
 	const url = new URL( window.location.href );
 	return url.searchParams.get( 'post' );
 }

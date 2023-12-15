@@ -1,4 +1,3 @@
-import React from '@wordpress/element';
 import { registerBlockType } from '@wordpress/blocks';
 import block from './block.json';
 import './style.scss';
