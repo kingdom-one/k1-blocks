@@ -14,6 +14,16 @@ class Plugin_Loader {
 		add_filter( 'block_categories_all', array( $this, 'k1_block_category' ) );
 	}
 
+    /** Activate the plugin */
+	public function activate() {
+		flush_rewrite_rules();
+	}
+
+    /** Deactivate the plugin */
+	public function deactivate() {
+		flush_rewrite_rules();
+	}
+
 	/** Loads Utilities */
 	private function load_helpers() {
 		$files = array( 'icon-set', 'leaf-icons' );

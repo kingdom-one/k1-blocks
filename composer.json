@@ -18,9 +18,11 @@
 			"dealerdirect/phpcodesniffer-composer-installer": true
 		}
 	},
+    "scripts":{
+        "phpcs":"phpcs ./inc/ kingdom-one-blocks.php --extensions=php --ignore=*/vendor/*,*/build/* ",
+        "phpcbf":"phpcbf ./inc/ kingdom-one-blocks.php --extensions=php --ignore=*/vendor/*,*/build/* "
+    },
 	"require-dev": {
-		"wp-coding-standards/wpcs": "^3.0",
-		"dealerdirect/phpcodesniffer-composer-installer": "^1.0",
-		"squizlabs/php_codesniffer": "^3.7"
+		"wp-coding-standards/wpcs": "*"
 	}
 }

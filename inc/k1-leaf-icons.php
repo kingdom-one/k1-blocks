@@ -34,11 +34,12 @@ function k1_get_the_leaf( int $leaf, string $color = '', string $direction = 'le
 }
 
 /**
- * Echoes the value of `k1_get_the_leaft($leaf)`
+ * Echoes the value of `k1_get_the_leaf`
  *
  * @param int    $leaf the leaf variant to return
  * @param string $color the leaf color
  * @param string $direction the direction of the leaves
+ * @return void
  */
 function k1_the_leaf( int $leaf, string $color = 'white', string $direction = 'right' ) {
 	echo k1_get_the_leaf( $leaf, $color, $direction );

@@ -4,7 +4,6 @@
 
 // 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "bootstrap/scss/functions";
-@import "bootstrap/scss/vendor/rfs";
 
 // 2. Include any default variable overrides here
 $primary: v.$color-primary;
@@ -49,8 +48,8 @@ $display-line-height: $headings-line-height;
 // Useful Bootstrap Utilities
 @import "bootstrap/scss/buttons";
 @import "bootstrap/scss/transitions";
-@import "bootstrap/scss/close";
-@import "bootstrap/scss/offcanvas";
+// @import "bootstrap/scss/close";
+// @import "bootstrap/scss/offcanvas";
 
 // Optional Bootstrap Modules (w/ Dependencies)
 
