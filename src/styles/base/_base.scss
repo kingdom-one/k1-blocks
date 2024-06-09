@@ -1,44 +1,36 @@
-@use '../abstracts/mixins' as m;
-@use '../abstracts/variables' as v;
+@use "../abstracts/variables" as v;
 
-%section_style {
-	position: relative;
-	padding: 6.5rem 0;
-}
+:root {
+	--font-headings: #{v.$font-roie};
+	--font-body: #{v.$font-poppins};
 
-section {
-	position: relative;
+	--color-primary: #{v.$color-primary};
+	--color-primary--dark: #{v.$color-primary--dark};
+	--color-primary--darkest: #{v.$color-primary--darkest};
 
-	&:where(:not(.hero)) {
-		@extend %section_style;
-	}
-}
+	--color-grey: #{v.$color-grey};
+	--color-grey--light: #{v.$color-grey--light};
+	--color-grey--lightest: #{v.$color-grey--lightest};
 
-aside {
-	@extend %section_style;
-}
+	--color-spark-yellow: #{v.$color-spark-yellow};
+	--color-ar-purple: #{v.$color-ar-purple};
+	--color-ar-orange: #{v.$color-ar-orange};
+	--color-ar-yellow: #{v.$color-ar-yellow};
 
-figure {
-	margin-bottom: 0;
-}
+	--transition--standard: #{v.$transition--standard};
 
-main {
-	position: relative;
-}
+	--lift-left-bottom: #{v.$lift-left-bottom};
+	--lift-right-bottom: #{v.$lift-right-bottom};
 
-.container {
-	position: relative;
-}
+	--drop-left-top: #{v.$drop-left-top};
+	--drop-right-top: #{v.$drop-right-top};
 
-.row {
-	position: relative;
-}
+	--drop-left: #{v.$drop-left};
+	--drop-right: #{v.$drop-right};
 
-.col {
-	position: relative;
-	height: auto;
-}
+	--zig-color-left: #{v.$zig-color-left};
+	--zig-color-right: #{v.$zig-color-right};
 
-footer {
-	margin-top: -1px;
+	--zag-color-left: #{v.$zag-color-left};
+	--zag-color-right: #{v.$zag-color-right};
 }

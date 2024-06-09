@@ -1,5 +1,4 @@
 @use "../abstracts/variables" as v;
-
 @import "bootstrap/scss/functions";
 
 // 2. Include any default variable overrides here
@@ -7,9 +6,21 @@ $primary: v.$color-primary;
 $font-size-base: 1.6rem;
 $font-size-root: 62.5%;
 $enable-dark-mode: false;
+
+$k1-colors: (
+	"dark-green": v.$color-k1-green--dark,
+	"academy-green": v.$color-academy-green,
+	"spark-yellow": v.$color-spark-yellow,
+	"purple": v.$color-ar-purple,
+	"orange": v.$color-ar-orange,
+	"yellow": v.$color-ar-yellow,
+	"gray": v.$color-grey,
+	"light-gray": v.$color-grey--light,
+	"lightest-gray": v.$color-grey--lightest,
+);
+
 // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
 @import "bootstrap/scss/variables";
-// @import "bootstrap/scss/variables-dark";
 
 // 4. Include any default map overrides here
 $display-font-sizes: (
@@ -25,6 +36,20 @@ $display-font-family: "Roie", sans-serif;
 $display-font-style: null;
 $display-font-weight: 400;
 $display-line-height: $headings-line-height;
+
+// Create your own map
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $k1-colors);
+$theme-colors: map-remove(
+	$theme-colors,
+	"info",
+	"warning",
+	"light",
+	"dark",
+	"secondary"
+);
+
 // 5. Include remainder of required parts
 @import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";

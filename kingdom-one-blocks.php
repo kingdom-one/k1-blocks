@@ -14,15 +14,17 @@
  * @package KingdomOne
  */
 
+use KingdomOne\Plugin_Loader;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	echo 'Rude.';
 	die;
 }
 
-define( 'PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+define( 'K1_BLOCKS_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
 /** Call the class */
-require PLUGIN_PATH . '/inc/class-plugin-loader.php';
+require K1_BLOCKS_PLUGIN_PATH . '/inc/class-plugin-loader.php';
 
 $plugin_loader = new Plugin_Loader();
 
