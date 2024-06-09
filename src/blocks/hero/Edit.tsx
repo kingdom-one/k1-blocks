@@ -24,6 +24,8 @@ import Leaves from '../../assets/leaves/leaves';
 import K1Icon from '../../assets/icon-set/k1Icons';
 import './editor.scss';
 
+import { WP_REST_API_Attachment, WP_REST_API_Page } from 'wp-types';
+
 function getThePostId(): string | null {
 	const url = new URL( window.location.href );
 	return url.searchParams.get( 'post' );
@@ -55,7 +57,7 @@ export default function EditComponent( { attributes, setAttributes } ) {
 	useEffect( () => {
 		async function getImg() {
 			if ( ! imgID ) return;
-			const response = await apiFetch( {
+			const response = await apiFetch< WP_REST_API_Attachment >( {
 				path: `wp/v2/media/${ imgID }`,
 				method: 'GET',
 			} );
@@ -72,7 +74,7 @@ export default function EditComponent( { attributes, setAttributes } ) {
 	useEffect( () => {
 		async function setPostTitle() {
 			const postId = getThePostId();
-			const response = await apiFetch( {
+			const response = await apiFetch< WP_REST_API_Page >( {
 				method: 'GET',
 				path: `wp/v2/pages/${ postId }?_fields[]=title`,
 			} );

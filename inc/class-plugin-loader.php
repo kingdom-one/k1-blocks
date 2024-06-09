@@ -11,6 +11,7 @@ class Plugin_Loader {
 	public function __construct() {
 		$this->load_helpers();
 		add_action( 'init', array( $this, 'register_blocks' ) );
+        add_action('wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_filter( 'block_categories_all', array( $this, 'k1_block_category' ) );
 	}
 
@@ -52,7 +53,12 @@ class Plugin_Loader {
 		}
 	}
 
-	/** Creates new "K1 Blocks" block category and sets its position to be 3rd in the list
+    public function enqueue_styles() {
+        wp_enqueue_style( 'k1-blocks-bootstrap', PLUGIN_PATH . 'build/index.css' );
+    }
+
+	/** 
+     * Creates new "K1 Blocks" block category and sets its position to be 3rd in the list
 	 *
 	 * @param array $categories the array of block categories
 	 * @return array the updated categories array

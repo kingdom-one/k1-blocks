@@ -1,13 +1,7 @@
 @use "../../styles/abstracts/mixins" as m;
 .hero {
-	font-size: 62.5%;
 	min-height: unset;
 	padding: 65px 0;
-
-	@include m.media-breakpoint-up(lg) {
-		min-height: unset;
-		padding: 65px 0;
-	}
 
 	.top-talent-groups {
 		&__grid {

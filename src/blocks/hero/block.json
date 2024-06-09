@@ -7,9 +7,7 @@
 	"description": "The hero container",
 	"textdomain": "kingdom_one",
 	"supports": {
-		"align": [
-			"full"
-		],
+		"align": [ "full", "wide" ],
 		"color": {
 			"text": false,
 			"background": false
@@ -63,10 +61,7 @@
 		},
 		"colorDirection": {
 			"type": "string",
-			"enum": [
-				"left",
-				"right"
-			],
+			"enum": [ "left", "right" ],
 			"default": "right"
 		},
 		"leaves": {
@@ -92,7 +87,6 @@
 		}
 	},
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./index.css",
-	"style": "file:./style-index.css",
+	"style": [ "file:./style-index.css", "file:../styles/main.scss" ],
 	"render": "file:./render.php"
 }
