@@ -7,44 +7,22 @@
 	"description": "Grab a custom K1 icon",
 	"textdomain": "kingdom_one",
 	"supports": {
-		"align": [
-			"full"
-		]
+		"color": true,
+		"dimensions": {
+			"minHeight": true,
+			"aspectRatio": false
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true
+		}
 	},
 	"attributes": {
-		"align": {
-			"type": "string",
-			"default": "full"
-		},
 		"icon": {
 			"type": "string",
 			"default": "justice"
-		},
-		"iconColor": {
-			"type": "string",
-			"default": "white"
-		},
-		"backgroundColor": {
-			"type": "string",
-			"default": "#dbdbdb"
-		},
-		"headline": {
-			"type": "string",
-			"default": "Meet a team member"
-		},
-		"headlineColor": {
-			"type": "string",
-			"default": "white"
-		},
-		"subheadline": {
-			"type": "string"
-		},
-		"subheadlineColor": {
-			"type": "string",
-			"default": "white"
 		}
 	},
 	"editorScript": "file:./index.js",
-	"style": "file:./style-index.css",
-	"render": "file:./render.php"
+	"style": "file:./style-index.css"
 }

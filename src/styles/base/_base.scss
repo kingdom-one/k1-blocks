@@ -18,19 +18,4 @@
 	--color-ar-yellow: #{v.$color-ar-yellow};
 
 	--transition--standard: #{v.$transition--standard};
-
-	--lift-left-bottom: #{v.$lift-left-bottom};
-	--lift-right-bottom: #{v.$lift-right-bottom};
-
-	--drop-left-top: #{v.$drop-left-top};
-	--drop-right-top: #{v.$drop-right-top};
-
-	--drop-left: #{v.$drop-left};
-	--drop-right: #{v.$drop-right};
-
-	--zig-color-left: #{v.$zig-color-left};
-	--zig-color-right: #{v.$zig-color-right};
-
-	--zag-color-left: #{v.$zag-color-left};
-	--zag-color-right: #{v.$zag-color-right};
 }

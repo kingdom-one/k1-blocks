@@ -47,6 +47,7 @@ class Plugin_Loader {
 			'text-callout',
 			'brands-slider',
 			'k1-icon',
+            'k1-leaves',
 		);
 
 		foreach ( $blocks as $block ) {

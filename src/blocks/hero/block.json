@@ -14,35 +14,6 @@
 		}
 	},
 	"attributes": {
-		"bottomBar": {
-			"type": "boolean",
-			"default": false
-		},
-		"icons": {
-			"type": "array",
-			"default": [
-				{
-					"value": "hr",
-					"label": "HR"
-				},
-				{
-					"value": "finance",
-					"label": "Finance"
-				},
-				{
-					"value": "marcom",
-					"label": "Marketing & Communications"
-				},
-				{
-					"value": "staffing",
-					"label": "Business Administration"
-				}
-			]
-		},
-		"iconColor": {
-			"type": "string",
-			"default": "white"
-		},
 		"align": {
 			"type": "string",
 			"default": "full"
@@ -63,30 +34,9 @@
 			"type": "string",
 			"enum": [ "left", "right" ],
 			"default": "right"
-		},
-		"leaves": {
-			"type": "string",
-			"default": "3"
-		},
-		"headline": {
-			"type": "string"
-		},
-		"headlineColor": {
-			"type": "string",
-			"default": "white"
-		},
-		"subheadline": {
-			"type": "string"
-		},
-		"subheadlineColor": {
-			"type": "string",
-			"default": "white"
-		},
-		"pageTitle": {
-			"type": "string"
 		}
 	},
 	"editorScript": "file:./index.js",
-	"style": [ "k1-blocks-bootstrap", "file:./style-index.css" ],
-	"render": "file:./render.php"
+	"editorStyle": "file:./editor.css",
+	"style": [ "file:./style-index.css" ]
 }

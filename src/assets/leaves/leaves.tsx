@@ -1,15 +1,13 @@
 import React from '@wordpress/element';
 import { leaves2, leaves3, leaves4 } from './leaf-svgs';
 
-function getLeaves( leaves: string ) {
-	switch ( leaves ) {
-		case '2':
-			return leaves2;
-		case '3':
-			return leaves3;
-		case '4':
-			return leaves4;
-	}
+function getLeaves( leaves: '2' | '3' | '4' ) {
+	const leafMap = {
+		'2': leaves2,
+		'3': leaves3,
+		'4': leaves4,
+	};
+	return leafMap[ leaves ];
 }
 
 export default function Leaves( {
