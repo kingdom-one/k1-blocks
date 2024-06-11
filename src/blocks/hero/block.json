@@ -15,6 +15,15 @@
 		"spacing": {
 			"padding": true,
 			"margin": true
+		},
+		"layout": true,
+		"dimensions": {
+			"minHeight": true
+		},
+		"multiple": false,
+		"background": {
+			"backgroundImage": true,
+			"backgroundSize": true
 		}
 	},
 	"attributes": {
@@ -22,20 +31,20 @@
 			"type": "string",
 			"default": "full"
 		},
-		"hasBackgroundImage": {
-			"type": "boolean",
-			"default": false
-		},
-		"backgroundImage": {
-			"type": "string",
-			"default": ""
-		},
 		"colorDirection": {
 			"type": "string",
 			"enum": [ "left", "right" ],
 			"default": "right"
+		},
+		"hasOverlay": {
+			"type": "boolean",
+			"default": true
+		},
+		"opacity": {
+			"type": "integer",
+			"default": "50"
 		}
 	},
-	"editorScript": "file:./index.js",
+	"editorScript": "file:./index.tsx",
 	"style": [ "file:./style-index.css" ]
 }

@@ -11,7 +11,11 @@
 		"spacing": {
 			"padding": true,
 			"margin": true
-		}
+		},
+		"dimensions": {
+			"aspectRatio": true
+		},
+		"__experimentalBorder": true
 	},
 	"attributes": {
 		"icon": {

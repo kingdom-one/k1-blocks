@@ -9,12 +9,14 @@ import {
 	PanelRow,
 	SelectControl,
 	ToggleControl,
+	RangeControl,
+	Icon,
 } from '@wordpress/components';
 
 registerBlockType( block.name, {
 	title: block.title,
 	edit: ( { attributes, setAttributes } ) => {
-		const { number, color, direction } = attributes;
+		const { number, color, direction, size } = attributes;
 
 		const blockProps = useBlockProps( {
 			className: 'k1-leaves',
@@ -56,14 +58,37 @@ registerBlockType( block.name, {
 								}
 							/>
 						</PanelRow>
+						<PanelRow>
+							<div style={ { width: '100%' } }>
+								<RangeControl
+									step={ 5 }
+									allowReset={ true }
+									isShiftStepEnabled={ true }
+									marks={ [
+										{ value: 50, label: '50px' },
+										{ value: 100, label: '100px' },
+										{ value: 150, label: '150px' },
+										{ value: 200, label: '200px' },
+									] }
+									label="Icon Size"
+									value={ size }
+									onChange={ ( size ) =>
+										setAttributes( { size } )
+									}
+									min={ 30 }
+									max={ 250 }
+								/>
+							</div>
+						</PanelRow>
 					</PanelBody>
 				</InspectorControls>
-				<div { ...blockProps }>{ getLeaves( number ) }</div>
+				<div { ...blockProps }>
+					<Icon icon={ getLeaves( number ) } size={ size } />
+				</div>
 			</>
 		);
 	},
-	save: ( { attributes } ) => {
-		const { number, color, direction } = attributes;
+	save: ( { attributes: { number, color, direction, size } } ) => {
 		const blockProps = useBlockProps.save( {
 			className: 'k1-leaves',
 			style: {
@@ -74,6 +99,10 @@ registerBlockType( block.name, {
 				transform: 'right' === direction ? `scaleX(-1)` : `scaleX(1)`,
 			},
 		} );
-		return <div { ...blockProps }>{ getLeaves( number ) }</div>;
+		return (
+			<div { ...blockProps }>
+				<Icon icon={ getLeaves( number ) } size={ size } />
+			</div>
+		);
 	},
 } );

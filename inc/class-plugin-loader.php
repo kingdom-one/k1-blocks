@@ -13,8 +13,8 @@ class Plugin_Loader {
 	public function __construct() {
 		$this->load_helpers();
 		add_action( 'init', array( $this, 'register_blocks' ) );
-        add_action('admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
-        add_action('wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+        // add_action('admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+        // add_action('wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_filter( 'block_categories_all', array( $this, 'k1_block_category' ) );
 	}
 

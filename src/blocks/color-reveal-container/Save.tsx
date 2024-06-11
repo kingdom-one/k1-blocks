@@ -3,15 +3,14 @@ import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 export default function SaveComponent( { attributes } ) {
 	const {
-		colorDirection,
-		hasBackgroundImage,
-		backgroundImage,
 		backgroundColor,
+		colorDirection,
+		style: { background },
 		opacity,
 	} = attributes;
 	const blockProps = useBlockProps.save( {
 		className: 'color-container',
-		style: { position: 'relative' },
+		style: { position: 'relative', background: 'none!important' },
 	} );
 	return (
 		<section { ...blockProps }>
@@ -20,16 +19,20 @@ export default function SaveComponent( { attributes } ) {
 			>
 				<div
 					className="color-container__background--color"
-					style={ { backgroundColor } }
+					style={ {
+						backgroundColor: `var(--wp--preset--color--${ backgroundColor })`,
+					} }
 				/>
-				{ hasBackgroundImage ? (
+				{ background.backgroundImage ? (
 					<>
 						<div
 							className="color-container__background--lower"
 							style={ {
-								backgroundImage: `url(${ backgroundImage })`,
-								backgroundPosition: 'center',
-								backgroundSize: 'cover',
+								backgroundImage: `url(${ background.backgroundImage.url })`,
+								backgroundPosition:
+									background.backgroundPosition || 'center',
+								backgroundSize:
+									background.backgroundSize || 'cover',
 							} }
 						/>
 						<div
@@ -46,8 +49,8 @@ export default function SaveComponent( { attributes } ) {
 				) }
 			</div>
 			<div
-				className="color-container__content position-relative container"
-				style={ { zIndex: 5 } }
+				className="color-container__content"
+				style={ { zIndex: 5, position: 'relative' } }
 			>
 				<InnerBlocks.Content />
 			</div>

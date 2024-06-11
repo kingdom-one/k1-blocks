@@ -14,20 +14,17 @@
 		"spacing": {
 			"padding": true,
 			"margin": true
+		},
+		"layout": true,
+		"background": {
+			"backgroundImage": true,
+			"backgroundSize": true
 		}
 	},
 	"attributes": {
 		"align": {
 			"type": "string",
 			"default": "full"
-		},
-		"hasBackgroundImage": {
-			"type": "boolean",
-			"default": false
-		},
-		"backgroundImage": {
-			"type": "string",
-			"default": ""
 		},
 		"colorDirection": {
 			"type": "string",
@@ -46,6 +43,10 @@
 		"opacity": {
 			"type": "integer",
 			"default": "35"
+		},
+		"hasOverlay": {
+			"type": "boolean",
+			"default": true
 		}
 	},
 	"editorScript": "file:./index.tsx",

@@ -1,60 +1,31 @@
-import React, { useState, useEffect } from '@wordpress/element';
+import React from '@wordpress/element';
 import {
 	useBlockProps,
 	InspectorControls,
-	MediaUpload,
-	MediaUploadCheck,
 	InnerBlocks,
 } from '@wordpress/block-editor';
-import apiFetch from '@wordpress/api-fetch';
 import {
 	PanelBody,
 	PanelRow,
 	SelectControl,
-	Button,
-	ButtonGroup,
+	ToggleControl,
+	FlexItem,
 	RangeControl,
 } from '@wordpress/components';
 
 export default function EditComponent( { attributes, setAttributes } ) {
 	const {
-		hasBackgroundImage,
-		backgroundImage,
 		backgroundColor,
 		colorDirection,
 		opacity,
+		style: { background },
+		hasOverlay,
 	} = attributes;
 
 	const blockProps = useBlockProps( {
 		className: 'color-container',
-		style: { position: 'relative' },
+		style: { position: 'relative', background: 'none!important' },
 	} );
-	const [ imgID, setImgID ] = useState< number | undefined >( undefined );
-
-	useEffect( () => {
-		async function getImg() {
-			if ( ! imgID ) return;
-			const response = await apiFetch( {
-				path: `wp/v2/media/${ imgID }`,
-				method: 'GET',
-			} );
-			if ( response ) {
-				setAttributes( {
-					backgroundImage:
-						response.media_details.sizes.full.source_url,
-				} );
-			}
-		}
-		getImg();
-	}, [ imgID, setAttributes ] );
-
-	function clearBackgroundImage() {
-		setAttributes( {
-			backgroundImage: '',
-			hasBackgroundImage: false,
-		} );
-		setImgID( undefined );
-	}
 
 	return (
 		<>
@@ -105,60 +76,34 @@ export default function EditComponent( { attributes, setAttributes } ) {
 					</PanelRow>
 				</PanelBody>
 				<PanelBody title="Background Image" initialOpen={ true }>
-					<PanelRow>
-						<MediaUploadCheck>
-							<MediaUpload
-								allowedTypes={ [ 'image' ] }
-								onSelect={ ( img ) => {
-									setAttributes( {
-										hasBackgroundImage: true,
-									} );
-									setImgID( img.id );
-								} }
-								value={ backgroundImage }
-								render={ ( { open } ) => (
-									<ButtonGroup>
-										<Button
-											variant="primary"
-											onClick={ open }
-										>
-											Choose Background Image
-										</Button>
-										{ hasBackgroundImage && (
-											<Button
-												variant="secondary"
-												onClick={ clearBackgroundImage }
-											>
-												Clear Background Image
-											</Button>
-										) }
-									</ButtonGroup>
-								) }
-							/>
-						</MediaUploadCheck>
-					</PanelRow>
-					{ hasBackgroundImage && (
-						<PanelRow>
-							<div style={ { width: '100%' } }>
-								<RangeControl
-									label={ 'Opacity' }
-									value={ opacity }
-									onChange={ ( opacity ) =>
-										setAttributes( { opacity } )
+					{ background?.backgroundImage && (
+						<>
+							<PanelRow>
+								<ToggleControl
+									label="Image Overlay"
+									checked={ hasOverlay }
+									onChange={ ( hasOverlay ) =>
+										setAttributes( { hasOverlay } )
 									}
-									min={ 15 }
-									step={ 5 }
-									isShiftStepEnabled={ true }
-									marks={ [
-										{ value: 15, label: '15%' },
-										{ value: 35, label: '35%' },
-										{ value: 50, label: '50%' },
-										{ value: 75, label: '75%' },
-										{ value: 100, label: '100%' },
-									] }
 								/>
-							</div>
-						</PanelRow>
+							</PanelRow>
+							{ hasOverlay && (
+								<PanelRow>
+									<FlexItem style={ { flexGrow: 1 } }>
+										<RangeControl
+											label="Overlay Opacity"
+											value={ opacity }
+											onChange={ ( opacity ) =>
+												setAttributes( { opacity } )
+											}
+											min={ 0 }
+											max={ 100 }
+											step={ 1 }
+										/>
+									</FlexItem>
+								</PanelRow>
+							) }
+						</>
 					) }
 				</PanelBody>
 			</InspectorControls>
@@ -168,34 +113,41 @@ export default function EditComponent( { attributes, setAttributes } ) {
 				>
 					<div
 						className="color-container__background--color"
-						style={ { backgroundColor } }
+						style={ {
+							backgroundColor: `var(--wp--preset--color--${ backgroundColor })`,
+						} }
 					/>
-					{ hasBackgroundImage ? (
+					{ background?.backgroundImage ? (
 						<>
 							<div
 								className="color-container__background--lower"
 								style={ {
-									backgroundImage: `url(${ backgroundImage })`,
-									backgroundPosition: 'center',
-									backgroundSize: 'cover',
+									backgroundImage: `url(${ background?.backgroundImage.url })`,
+									backgroundPosition:
+										background.backgroundPosition ||
+										'center',
+									backgroundSize:
+										background.backgroundSize || 'cover',
 								} }
 							/>
-							<div
-								className="color-container__background--upper"
-								style={ {
-									backgroundColor: `rgba(0,0,0,${
-										opacity / 100
-									})`,
-								} }
-							/>
+							{ hasOverlay && (
+								<div
+									className="color-container__background--upper"
+									style={ {
+										backgroundColor: `rgba(0,0,0,${
+											opacity / 100
+										})`,
+									} }
+								/>
+							) }
 						</>
 					) : (
 						<div className="color-container__background--lower" />
 					) }
 				</div>
 				<div
-					className="color-container__content position-relative container"
-					style={ { zIndex: 5 } }
+					className="color-container__content"
+					style={ { zIndex: 5, position: 'relative' } }
 				>
 					<InnerBlocks />
 				</div>

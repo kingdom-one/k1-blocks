@@ -14,10 +14,6 @@
 		background-repeat: no-repeat;
 	}
 
-	&--upper {
-		background-color: rgba(black, 0.65);
-	}
-
 	&.color-right {
 		@include m.clip-path("right-bottom");
 	}

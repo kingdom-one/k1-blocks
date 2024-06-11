@@ -17,6 +17,10 @@
 		"dimensions": {
 			"spacing": true,
 			"minHeight": true
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true
 		}
 	},
 	"attributes": {
@@ -27,6 +31,10 @@
 		"direction": {
 			"type": "string",
 			"default": "left"
+		},
+		"size": {
+			"type": "integer",
+			"default": 50
 		}
 	},
 	"style": "file:./style-index.css",

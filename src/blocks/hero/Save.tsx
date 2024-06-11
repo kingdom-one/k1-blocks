@@ -5,12 +5,16 @@ export default function SaveComponent( { attributes } ) {
 	const {
 		colorDirection,
 		backgroundColor,
-		hasBackgroundImage,
-		backgroundImage,
+		style: { background },
+		opacity,
+		hasOverlay,
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: `hero`,
+		className: 'hero',
+		style: {
+			background: 'none !important',
+		},
 	} );
 
 	return (
@@ -19,18 +23,31 @@ export default function SaveComponent( { attributes } ) {
 				<div
 					className="hero-background--color"
 					style={ {
-						backgroundColor: `${ backgroundColor }`,
+						backgroundColor: `var(--wp--preset--color--${ backgroundColor })`,
 					} }
 				/>
-				{ hasBackgroundImage && (
+				{ background.backgroundImage && (
 					<>
 						<div
 							className="hero-background--lower"
 							style={ {
-								backgroundImage: `url(${ backgroundImage })`,
+								backgroundImage: `url(${ background.backgroundImage.url })`,
+								backgroundPosition:
+									background.backgroundPosition || 'center',
+								backgroundSize:
+									background.backgroundSize || 'cover',
 							} }
 						/>
-						<div className="hero-background--upper"></div>
+						{ hasOverlay && (
+							<div
+								className="hero-background--upper"
+								style={ {
+									backgroundColor: `rgba(0,0,0,${
+										opacity / 100
+									})`,
+								} }
+							></div>
+						) }
 					</>
 				) }
 			</div>

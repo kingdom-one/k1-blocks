@@ -51,9 +51,4 @@
 			@include m.clip-path("zig-zag-right");
 		}
 	}
-
-	&__content {
-		position: relative;
-		z-index: 5;
-	}
 }
