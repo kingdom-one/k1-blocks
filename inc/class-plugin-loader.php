@@ -41,11 +41,11 @@ class Plugin_Loader {
 		$blocks = array(
 			'hero',
 			'color-reveal-container',
-			'relationship-slider',
-			'icon-grid',
-			'testimonials-slider',
-			'text-callout',
-			'brands-slider',
+			// 'relationship-slider',
+			// 'icon-grid',
+			// 'testimonials-slider',
+			// 'text-callout',
+			// 'brands-slider',
 			'k1-icon',
             'k1-leaves',
 		);

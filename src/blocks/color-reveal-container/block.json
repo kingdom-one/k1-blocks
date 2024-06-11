@@ -7,16 +7,19 @@
 	"description": "The section container that allows for colors to be displayed",
 	"textdomain": "kingdom_one",
 	"supports": {
-		"align": true
+		"align": true,
+		"color": {
+			"background": true
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true
+		}
 	},
 	"attributes": {
 		"align": {
 			"type": "string",
 			"default": "full"
-		},
-		"backgroundColor": {
-			"type": "string",
-			"default": "#00644b"
 		},
 		"hasBackgroundImage": {
 			"type": "boolean",
@@ -45,7 +48,6 @@
 			"default": "35"
 		}
 	},
-	"editorScript": "file:./index.js",
-	"style": "file:./index.css",
-	"render": "file:./render.php"
+	"editorScript": "file:./index.tsx",
+	"style": "file:./index.css"
 }

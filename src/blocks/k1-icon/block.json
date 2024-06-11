@@ -8,10 +8,6 @@
 	"textdomain": "kingdom_one",
 	"supports": {
 		"color": true,
-		"dimensions": {
-			"minHeight": true,
-			"aspectRatio": false
-		},
 		"spacing": {
 			"padding": true,
 			"margin": true
@@ -21,8 +17,12 @@
 		"icon": {
 			"type": "string",
 			"default": "justice"
+		},
+		"size": {
+			"type": "number",
+			"default": 100
 		}
 	},
-	"editorScript": "file:./index.js",
-	"style": "file:./style-index.css"
+	"style": "file:./style-index.css",
+	"editorScript": "file:./index.tsx"
 }

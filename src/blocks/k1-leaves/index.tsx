@@ -1,18 +1,31 @@
 import React from '@wordpress/element';
 import block from './block.json';
 import './style.scss';
-import Leaves from '../../assets/leaves/leaves';
+import { getLeaves } from '../../assets/leaves/leaves';
 import { registerBlockType } from '@wordpress/blocks';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, PanelRow, SelectControl } from '@wordpress/components';
+import {
+	PanelBody,
+	PanelRow,
+	SelectControl,
+	ToggleControl,
+} from '@wordpress/components';
 
 registerBlockType( block.name, {
 	title: block.title,
 	edit: ( { attributes, setAttributes } ) => {
-		const { number, color, size, direction } = attributes;
+		const { number, color, direction } = attributes;
 
-		const blockProps = useBlockProps( { class: 'container' } );
-
+		const blockProps = useBlockProps( {
+			className: 'k1-leaves',
+			style: {
+				aspectRatio: 1,
+				width: 'auto',
+				height: 'auto',
+				color: color,
+				transform: 'right' === direction ? `scaleX(-1)` : `scaleX(1)`,
+			},
+		} );
 		return (
 			<>
 				<InspectorControls>
@@ -27,33 +40,40 @@ registerBlockType( block.name, {
 									{ label: '4', value: '4' },
 								] }
 								onChange={ ( number ) =>
-									setAttributes( { number: number } )
+									setAttributes( { number } )
+								}
+							/>
+						</PanelRow>
+						<PanelRow>
+							<ToggleControl
+								label="Direction"
+								help={ 'Flip the leaves' }
+								checked={ 'right' === direction }
+								onChange={ ( direction ) =>
+									setAttributes( {
+										direction: direction ? 'right' : 'left',
+									} )
 								}
 							/>
 						</PanelRow>
 					</PanelBody>
 				</InspectorControls>
-				<div { ...blockProps }>
-					<Leaves
-						leaves={ number }
-						color={ color }
-						direction={ direction }
-					/>
-				</div>
+				<div { ...blockProps }>{ getLeaves( number ) }</div>
 			</>
 		);
 	},
 	save: ( { attributes } ) => {
-		const { number, color, size, direction } = attributes;
-		const blockProps = useBlockProps( { class: 'container' } );
-		return (
-			<div { ...blockProps }>
-				<Leaves
-					leaves={ number }
-					color={ color }
-					direction={ direction }
-				/>
-			</div>
-		);
+		const { number, color, direction } = attributes;
+		const blockProps = useBlockProps.save( {
+			className: 'k1-leaves',
+			style: {
+				aspectRatio: 1,
+				width: 'auto',
+				height: 'auto',
+				color,
+				transform: 'right' === direction ? `scaleX(-1)` : `scaleX(1)`,
+			},
+		} );
+		return <div { ...blockProps }>{ getLeaves( number ) }</div>;
 	},
 } );

@@ -15,9 +15,9 @@ export default function SaveComponent( { attributes } ) {
 
 	return (
 		<section { ...blockProps }>
-			<div className={ `hero__background color-${ colorDirection }` }>
+			<div className={ `hero-background color-${ colorDirection }` }>
 				<div
-					className="hero__background--color"
+					className="hero-background--color"
 					style={ {
 						backgroundColor: `${ backgroundColor }`,
 					} }
@@ -25,16 +25,16 @@ export default function SaveComponent( { attributes } ) {
 				{ hasBackgroundImage && (
 					<>
 						<div
-							className="hero__background--lower"
+							className="hero-background--lower"
 							style={ {
 								backgroundImage: `url(${ backgroundImage })`,
 							} }
 						/>
-						<div className="hero__background--upper"></div>
+						<div className="hero-background--upper"></div>
 					</>
 				) }
 			</div>
-			<div className="hero__content">
+			<div className="hero-content">
 				<InnerBlocks.Content />
 			</div>
 		</section>

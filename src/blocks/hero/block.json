@@ -7,20 +7,20 @@
 	"description": "The hero container",
 	"textdomain": "kingdom_one",
 	"supports": {
-		"align": [ "full", "wide" ],
+		"align": true,
 		"color": {
 			"text": false,
-			"background": false
+			"background": true
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true
 		}
 	},
 	"attributes": {
 		"align": {
 			"type": "string",
 			"default": "full"
-		},
-		"backgroundColor": {
-			"type": "string",
-			"default": "#00644b"
 		},
 		"hasBackgroundImage": {
 			"type": "boolean",
@@ -37,6 +37,5 @@
 		}
 	},
 	"editorScript": "file:./index.js",
-	"editorStyle": "file:./editor.css",
 	"style": [ "file:./style-index.css" ]
 }

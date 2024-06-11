@@ -14,10 +14,7 @@ import {
 	Button,
 	ButtonGroup,
 	RangeControl,
-	ColorPalette,
 } from '@wordpress/components';
-
-import colors from '../../assets/colors.json';
 
 export default function EditComponent( { attributes, setAttributes } ) {
 	const {
@@ -29,7 +26,8 @@ export default function EditComponent( { attributes, setAttributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps( {
-		className: 'color-container my-5 py-5 position-relative',
+		className: 'color-container',
+		style: { position: 'relative' },
 	} );
 	const [ imgID, setImgID ] = useState< number | undefined >( undefined );
 
@@ -62,16 +60,6 @@ export default function EditComponent( { attributes, setAttributes } ) {
 		<>
 			<InspectorControls>
 				<PanelBody title="Background Color" initialOpen={ true }>
-					<PanelRow>
-						<ColorPalette
-							colors={ colors.palette }
-							onChange={ ( val ) => {
-								setAttributes( { backgroundColor: val } );
-							} }
-							clearable={ false }
-							value={ backgroundColor }
-						/>
-					</PanelRow>
 					<PanelRow>
 						<SelectControl
 							label="Color Direction"
@@ -158,8 +146,16 @@ export default function EditComponent( { attributes, setAttributes } ) {
 									onChange={ ( opacity ) =>
 										setAttributes( { opacity } )
 									}
-									min={ 0 }
-									max={ 100 }
+									min={ 15 }
+									step={ 5 }
+									isShiftStepEnabled={ true }
+									marks={ [
+										{ value: 15, label: '15%' },
+										{ value: 35, label: '35%' },
+										{ value: 50, label: '50%' },
+										{ value: 75, label: '75%' },
+										{ value: 100, label: '100%' },
+									] }
 								/>
 							</div>
 						</PanelRow>
@@ -172,7 +168,7 @@ export default function EditComponent( { attributes, setAttributes } ) {
 				>
 					<div
 						className="color-container__background--color"
-						style={ { backgroundColor: backgroundColor } }
+						style={ { backgroundColor } }
 					/>
 					{ hasBackgroundImage ? (
 						<>

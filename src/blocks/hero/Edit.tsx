@@ -10,14 +10,13 @@ import {
 import {
 	PanelBody,
 	PanelRow,
-	SelectControl,
+	ToggleControl,
 	Button,
 	ButtonGroup,
 	ColorPalette,
 } from '@wordpress/components';
 
 import colors from '../../assets/colors.json';
-import './editor.scss';
 
 import { WP_REST_API_Attachment, WP_REST_API_Page } from 'wp-types';
 
@@ -113,7 +112,7 @@ export default function EditComponent( { attributes, setAttributes } ) {
 							/>
 						</MediaUploadCheck>
 					</PanelRow>
-					<PanelRow>
+					{ /* <PanelRow>
 						<ColorPalette
 							colors={ colors.palette }
 							onChange={ ( val ) => {
@@ -122,49 +121,45 @@ export default function EditComponent( { attributes, setAttributes } ) {
 							clearable={ false }
 							value={ backgroundColor }
 						/>
-					</PanelRow>
+					</PanelRow> */ }
 					<PanelRow>
-						<SelectControl
+						<ToggleControl
 							label="Color Direction"
-							value={ colorDirection }
-							options={ [
-								{
-									label: 'Left',
-									value: 'left',
-								},
-								{
-									label: 'Right',
-									value: 'right',
-								},
-							] }
+							help={ 'Choose the direction of the color' }
+							checked={ 'left' === colorDirection }
 							onChange={ ( colorDirection ) =>
-								setAttributes( { colorDirection } )
+								setAttributes( {
+									colorDirection:
+										true === colorDirection
+											? 'left'
+											: 'right',
+								} )
 							}
 						/>
 					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
 			<section { ...blockProps }>
-				<div className={ `hero__background color-${ colorDirection }` }>
+				<div className={ `hero-background color-${ colorDirection }` }>
 					<div
-						className="hero__background--color"
+						className="hero-background--color"
 						style={ {
-							backgroundColor: `${ backgroundColor }`,
+							backgroundColor,
 						} }
 					/>
 					{ hasBackgroundImage && (
 						<>
 							<div
-								className="hero__background--lower"
+								className="hero-background--lower"
 								style={ {
 									backgroundImage: `url(${ backgroundImage })`,
 								} }
 							/>
-							<div className="hero__background--upper"></div>
+							<div className="hero-background--upper"></div>
 						</>
 					) }
 				</div>
-				<div className="hero__content">
+				<div className="hero-content">
 					<InnerBlocks />
 				</div>
 			</section>

@@ -1,10 +1,7 @@
 @use "../../styles/abstracts/mixins" as m;
+@use "../../styles/abstracts//clip-path-css-vars";
 
 .color-container {
-	.editor-styles-wrapper & {
-		padding: 0.5rem;
-	}
-
 	&__background {
 		@include m.absolute_100;
 
