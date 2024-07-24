@@ -1,6 +1,6 @@
 {
 	"name": "k1-blocks",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "The blocks for the k1 theme",
 	"prettier": "@wordpress/prettier-config",
 	"browserslist": [
@@ -24,13 +24,18 @@
 	"license": "ISC",
 	"dependencies": {
 		"bootstrap": "^5.3.3",
-		"swiper": "^11.1.4"
+		"swiper": "^11.1.7"
 	},
 	"devDependencies": {
-		"@types/wordpress__block-editor": "^11.5.14",
+		"@types/wordpress__block-editor": "^11.5.15",
 		"@types/wordpress__blocks": "^12.5.14",
-		"@wordpress/scripts": "^27.9.0",
+		"@wordpress/scripts": "^28.3.0",
 		"eslint-config-react-app": "^7.0.1",
-		"wp-types": "^3.65.0"
+		"wp-types": "^3.66.0"
+	},
+	"overrides": {
+		"lighthouse": "^12.1.0",
+		"puppeteer-core": "^22.13.1",
+		"ws": "^8.18.0"
 	}
 }
