@@ -13,17 +13,15 @@ class Plugin_Loader {
 	public function __construct() {
 		$this->load_helpers();
 		add_action( 'init', array( $this, 'register_blocks' ) );
-        // add_action('admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
-        // add_action('wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_filter( 'block_categories_all', array( $this, 'k1_block_category' ) );
 	}
 
-    /** Activate the plugin */
+	/** Activate the plugin */
 	public function activate() {
 		flush_rewrite_rules();
 	}
 
-    /** Deactivate the plugin */
+	/** Deactivate the plugin */
 	public function deactivate() {
 		flush_rewrite_rules();
 	}
@@ -41,15 +39,9 @@ class Plugin_Loader {
 		$blocks = array(
 			'hero',
 			'color-reveal-container',
-			// 'relationship-slider',
-			// 'icon-grid',
-			// 'testimonials-slider',
-			// 'text-callout',
-			// 'brands-slider',
 			'k1-icon',
-            'k1-leaves',
+			'k1-leaves',
 		);
-
 		foreach ( $blocks as $block ) {
 			register_block_type(
 				K1_BLOCKS_PLUGIN_PATH . "build/blocks/{$block}"
@@ -57,19 +49,8 @@ class Plugin_Loader {
 		}
 	}
 
-    public function enqueue_styles() {
-        $asset_file = require_once K1_BLOCKS_PLUGIN_PATH . '/build/global.asset.php';
-        $path = plugin_dir_url( K1_BLOCKS_PLUGIN_PATH . '/global.css');
-        wp_register_style(
-             'k1-blocks-bootstrap',
-              $path . '/build/global.css',
-              [],
-              $asset_file['version']
-            );
-    }
-
-	/** 
-     * Creates new "K1 Blocks" block category and sets its position to be 3rd in the list
+	/**
+	 * Creates new "K1 Blocks" block category and sets its position to be 3rd in the list
 	 *
 	 * @param array $categories the array of block categories
 	 * @return array the updated categories array

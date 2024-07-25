@@ -11,9 +11,11 @@ import {
 import { getIcon } from '../../assets/icon-set/getIcon';
 import block from './block.json';
 import './style.scss';
+import { k1Logo } from '../../assets/BlockIcon';
 
 registerBlockType( block.name, {
 	title: block.title,
+	icon: k1Logo,
 	edit: ( { attributes, setAttributes } ) => {
 		const { icon, size } = attributes;
 
@@ -32,20 +34,20 @@ registerBlockType( block.name, {
 									value={ icon }
 									options={ [
 										{ label: 'Academy', value: 'academy' },
-										{ label: 'finance', value: 'finance' },
-										{ label: 'hr', value: 'hr' },
-										{ label: 'justice', value: 'justice' },
-										{ label: 'marcom', value: 'marcom' },
-										{ label: 'spark', value: 'spark' },
+										{ label: 'Finance', value: 'finance' },
+										{ label: 'HR', value: 'hr' },
+										{ label: 'Justice', value: 'justice' },
+										{ label: 'Marcom', value: 'marcom' },
+										{ label: 'Spark', value: 'spark' },
 										{
-											label: 'staffing',
+											label: 'Staffing',
 											value: 'staffing',
 										},
 										{
-											label: 'strategy',
+											label: 'Strategy',
 											value: 'strategy',
 										},
-										{ label: 'webDev', value: 'webDev' },
+										{ label: 'Web Dev', value: 'webDev' },
 									] }
 									onChange={ ( icon ) =>
 										setAttributes( { icon } )

@@ -12,9 +12,11 @@ import {
 	RangeControl,
 	Icon,
 } from '@wordpress/components';
+import { k1Logo } from '../../assets/BlockIcon';
 
 registerBlockType( block.name, {
 	title: block.title,
+	icon: k1Logo,
 	edit: ( { attributes, setAttributes } ) => {
 		const { number, color, direction, size } = attributes;
 

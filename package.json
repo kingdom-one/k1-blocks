@@ -1,6 +1,6 @@
 {
 	"name": "k1-blocks",
-	"version": "1.2.1",
+	"version": "2.0.0",
 	"description": "The blocks for the k1 theme",
 	"prettier": "@wordpress/prettier-config",
 	"browserslist": [
@@ -22,10 +22,6 @@
 	],
 	"author": "KJ Roelke",
 	"license": "ISC",
-	"dependencies": {
-		"bootstrap": "^5.3.3",
-		"swiper": "^11.1.7"
-	},
 	"devDependencies": {
 		"@types/wordpress__block-editor": "^11.5.15",
 		"@types/wordpress__blocks": "^12.5.14",

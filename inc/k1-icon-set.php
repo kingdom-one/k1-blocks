@@ -47,6 +47,7 @@ function get_the_k1_icon( string $icon, string $color = '#4b4b4b' ): string {
 	return $markup;
 }
 
+
 /**
  * Echoes the value of get_the_k1_icon($icon)
  *
