@@ -1,11 +1,16 @@
-import React from '@wordpress/element';
+import React, { useState } from '@wordpress/element';
 import { registerBlockType } from '@wordpress/blocks';
-import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	InspectorControls,
+	RichText,
+} from '@wordpress/block-editor';
 import {
 	PanelBody,
 	PanelRow,
 	SelectControl,
 	RangeControl,
+	ToggleControl,
 	Icon,
 } from '@wordpress/components';
 import { getIcon } from '../../assets/icon-set/getIcon';
@@ -17,10 +22,11 @@ registerBlockType( block.name, {
 	title: block.title,
 	icon: k1Logo,
 	edit: ( { attributes, setAttributes } ) => {
-		const { icon, size } = attributes;
+		const { icon, size, hasLink, linkText } = attributes;
+		const [ linkEnabled, setLinkEnabled ] = useState( hasLink );
 
 		const blockProps = useBlockProps( {
-			className: 'k1-icon__background',
+			className: 'k1-icon',
 		} );
 
 		return (
@@ -57,15 +63,35 @@ registerBlockType( block.name, {
 						</PanelRow>
 						<PanelRow>
 							<div style={ { width: '100%' } }>
+								<p>
+									<i>
+										Setting the text to a link will make the
+										whole icon and text clickable.
+									</i>
+								</p>
+								<ToggleControl
+									label="Add Text"
+									checked={ hasLink }
+									onChange={ () => {
+										setLinkEnabled( ! linkEnabled );
+										setAttributes( {
+											hasLink: ! linkEnabled,
+										} );
+									} }
+								/>
+							</div>
+						</PanelRow>
+						<PanelRow>
+							<div style={ { width: '100%' } }>
 								<RangeControl
 									step={ 5 }
 									allowReset={ true }
 									isShiftStepEnabled={ true }
 									marks={ [
-										{ value: 50, label: '50px' },
-										{ value: 100, label: '100px' },
-										{ value: 150, label: '150px' },
-										{ value: 200, label: '200px' },
+										{ value: 50, label: '50' },
+										{ value: 100, label: '100' },
+										{ value: 150, label: '150' },
+										{ value: 200, label: '200' },
 									] }
 									label="Icon Size"
 									value={ size }
@@ -83,25 +109,44 @@ registerBlockType( block.name, {
 					<Icon
 						size={ size }
 						icon={ getIcon( icon ) }
-						className={ `k1-icon__container k1-icon__${ icon }` }
+						className={ `k1-icon__${ icon }` }
 					/>
+					{ hasLink && (
+						<RichText
+							tagName="span"
+							value={ linkText }
+							onChange={ ( linkText ) =>
+								setAttributes( { linkText } )
+							}
+							allowedFormats={ [
+								'core/bold',
+								'core/italic',
+								'core/link',
+								'core/text-color',
+								'core-underline',
+							] }
+						/>
+					) }
 				</figure>
 			</>
 		);
 	},
 	save: ( { attributes } ) => {
-		const { icon, size } = attributes;
+		const { icon, size, hasLink, linkText } = attributes;
 
 		const blockProps = useBlockProps.save( {
-			className: 'k1-icon__background',
+			className: 'k1-icon',
 		} );
 		return (
 			<figure { ...blockProps }>
 				<Icon
 					size={ size }
 					icon={ getIcon( icon ) }
-					className={ `k1-icon__container k1-icon__${ icon }` }
+					className={ `k1-icon__${ icon }` }
 				/>
+				{ hasLink && (
+					<RichText.Content value={ linkText } tagName="a" />
+				) }
 			</figure>
 		);
 	},

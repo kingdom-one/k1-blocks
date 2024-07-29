@@ -8,14 +8,18 @@
 	"textdomain": "kingdom_one",
 	"supports": {
 		"color": true,
+		"layout": true,
+		"typography": {
+			"fontSize": true,
+			"textAlign": true
+		},
 		"spacing": {
 			"padding": true,
-			"margin": true
+			"margin": true,
+			"blockGap": true
 		},
-		"dimensions": {
-			"aspectRatio": true
-		},
-		"__experimentalBorder": true
+		"dimensions": true,
+		"border": true
 	},
 	"attributes": {
 		"icon": {
@@ -25,6 +29,14 @@
 		"size": {
 			"type": "number",
 			"default": 100
+		},
+		"hasLink": {
+			"type": "boolean",
+			"default": false
+		},
+		"linkText": {
+			"type": "string",
+			"source": "rich-text"
 		}
 	},
 	"style": "file:./style-index.css",

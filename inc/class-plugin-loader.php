@@ -38,7 +38,7 @@ class Plugin_Loader {
 	public function register_blocks() {
 		$blocks = array(
 			'hero',
-			'color-reveal-container',
+			// 'color-reveal-container',
 			'k1-icon',
 			'k1-leaves',
 		);
